@@ -3,25 +3,100 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    color: rgb(var(--foreground-rgb));
+    background-color: #222;
+}
+
+.bg {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200vh;
+    background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+    background-repeat: repeat;
+    animation: bg-animation .2s infinite;
+    opacity: .9;
+    visibility: visible;
+    z-index: -1;
+}
+
+h2 {
+    position: relative;
+    user-select: none;
+}
+
+h2 span:nth-child(2) {
+    position: absolute;
+    transform: translate(-100%,-100%);
+}
+
+.bubble {
+    position: fixed;
+    top: calc(70% - 20px);
+    left: calc(30% - 20px);
+    width: 20px;
+    height: 20px;
+    border-radius: 70%;
+    background-color: transparent;
+    z-index: -1;
+}
+
+.word-slider {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+.word-slider .slide {
+    display: block;
+    padding: 0;
+    animation: slideWord 5s ease-in-out infinite;
+}
+
+@keyframes bg-animation {
+    0% { transform: translate(0,0) }
+    10% { transform: translate(-5%,-5%) }
+    20% { transform: translate(-10%,5%) }
+    30% { transform: translate(5%,-10%) }
+    40% { transform: translate(-5%,15%) }
+    50% { transform: translate(-10%,5%) }
+    60% { transform: translate(15%,0) }
+    70% { transform: translate(0,10%) }
+    80% { transform: translate(-15%,0) }
+    90% { transform: translate(10%,5%) }
+    100% { transform: translate(5%,0) }
+}
+
+@keyframes bubble-animation {
+    0% { transform: translate(0,0) }
+    20% { transform: translate(-150%,55%) }
+    50% { transform: translate(-200%,100%) }
+    80% { transform: translate(-150%,55%) }
+    100% { transform: translate(0,0) }
+}
+
+@keyframes slideWord {
+    0%, 45%, 100% { /* 1s for sliding up, then pause for 2s */
+        transform: translateY(0);
+    }
+    50%, 95% {
+        transform: translateY(-100%);
+    }
 }
