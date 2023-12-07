@@ -10,8 +10,8 @@ function Bubble() {
             const { current } = containerRef;
             if (current) {
                 // Position
-                const translateX = window.scrollY / 4 * 1.2 *-1;
-                const translateY = window.scrollY / 5 * 1.5 *-1;
+                const translateX = window.scrollY / 4 * 1.9 *-1;
+                const translateY = window.scrollY / 5 * 3 *-1;
                 current.style.transform = `translate(${translateX}px, ${translateY}px)`;
 
                 // Size
