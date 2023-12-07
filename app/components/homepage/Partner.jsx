@@ -4,7 +4,7 @@ import partner from './data/partner.json';
 export default function Partner() {
     return (
         <>
-            <h2 className='text-[60px] xl:text-[120px] m-0 p-0 leading-none uppercase text-center'>
+            <h2 className='text-[60px] xl:text-[120px] m-0 p-0 leading-none uppercase xl:text-center'>
                 OUR<p className='text-[#6A90BA] uppercase font-bold'>Partner</p>
             </h2>
                     

@@ -64,7 +64,7 @@ export default function Home() {
                 <Partner />
             </div>
 
-            <div className='ventureCapital p-5 text-center mt-20 xl:mt-40'>
+            <div className='ventureCapital p-5 xl:text-center mt-20 xl:mt-40'>
                 <h2 className='text-[60px] xl:text-[120px] m-0 p-0 leading-none uppercase text-[#6A90BA] font-bold'>
                     VENTURE CAPITAL
                 </h2>
