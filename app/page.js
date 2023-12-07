@@ -21,10 +21,10 @@ export default function Home() {
                     </span>
                 </h2>
 
-                <p className='text-[18px] m-0 p-0 uppercase w-full xl:w-[840px] text-left mt-4'>
-                    Crypto Society is a group of enthusiasts set up by the people for the people.
-                    We aim to inform on all matters crypto by sharing our research to passionate
-                    members who are encouraged to learn and share themselves.
+                <p className='text-[18px] m-0 p-0 w-full xl:w-[840px] text-left mt-4'>
+                    Crypto Society is a community created by and for individuals passionate about cryptocurrency.
+                    Our objective is to enlighten members about various aspects of crypto through the distribution of our research.
+                    We encourage our members to engage in learning and to actively participate in sharing their insights.
                 </p>
             </div>
 
