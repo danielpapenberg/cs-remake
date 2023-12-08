@@ -8,8 +8,10 @@ export default function Home() {
         <main>
             <div className="bg"></div>
             <div className='h-[100vh]'></div>
-
-            <BlackWhole />
+            
+            <div className='hidden xl:block'>
+                <BlackWhole />
+            </div>
 
             <div className='absolute xl:right-[20%] top-[20%] xl:top-[40%] p-5 xl:p-0'>
                 <h2 className='text-[60px] xl:text-[120px] leading-none uppercase'>Empower</h2>

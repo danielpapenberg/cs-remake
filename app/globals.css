@@ -139,7 +139,6 @@ h2 span:nth-child(2) {
 }
 
 @keyframes slideWord {
-
 	0%,
 	45%,
 	100% {
@@ -361,6 +360,8 @@ bh-backdrop {
 .bh-shadow {
 	width: 5vw;
 	height: 5vw;
+    min-width: 100px;
+    min-height: 100px;
 	background: black;
 	display: flex;
 	border-radius: 100%;

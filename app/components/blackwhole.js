@@ -48,7 +48,7 @@ function Blackwhole() {
     }, []);
 
     return (
-        <div className="blackWhole" ref={containerRef}>
+        <div className="blackWhole z-[-1] xl:z-1" ref={containerRef}>
             <bh-doppler></bh-doppler>
             <bh-photon-ring></bh-photon-ring>
             <bh-accretion></bh-accretion>
