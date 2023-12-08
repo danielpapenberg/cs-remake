@@ -1,4 +1,4 @@
-import Bubble from './components/bubble.client'
+import BlackWhole from './components/blackwhole';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faTelegram } from "@fortawesome/free-brands-svg-icons";
 import Partner from './components/homepage/Partner';
@@ -9,7 +9,7 @@ export default function Home() {
             <div className="bg"></div>
             <div className='h-[100vh]'></div>
 
-            <Bubble />
+            <BlackWhole />
 
             <div className='absolute xl:right-[20%] top-[20%] xl:top-[40%] p-5 xl:p-0'>
                 <h2 className='text-[60px] xl:text-[120px] leading-none uppercase'>Empower</h2>
@@ -26,6 +26,11 @@ export default function Home() {
                     Our objective is to enlighten members about various aspects of crypto through the distribution of our research.
                     We encourage our members to engage in learning and to actively participate in sharing their insights.
                 </p>
+
+                <div className='flex gap-5 mt-2'>
+                    <button className='glow-on-hover py-5 px-10 mt-5 uppercase font-bold' type="button">FOR Individuals</button>
+                    <button className='glow-on-hover py-5 px-10 mt-5 uppercase font-bold' type="button">FOR Companies</button>
+                </div>
             </div>
 
             <div className='social relative p-5 xl:p-0'>

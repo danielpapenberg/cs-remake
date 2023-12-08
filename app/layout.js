@@ -20,15 +20,21 @@ export default function RootLayout({ children }) {
                 <div className='hidden xl:block fixed top-[32px] right-[40px] right-lg-[100px]'>
                     <ul className='flex gap-10'>
                         <li>
-                            <a href="#" className="transition-colors duration-300 ease-in-out xl:hover:text-[#5da8ff]">
+                            <a href="#" className="transition-colors duration-300 ease-in-out xl:hover:text-[#5da8ff] uppercase text-[14px]">
                                 <span className='text-[11px] relative top-[-4px] left-[-6px] text-gray-500'>01</span>
-                                About
+                                Home
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="transition-colors duration-300 ease-in-out xl:hover:text-[#5da8ff]">
+                            <a href="#" className="transition-colors duration-300 ease-in-out xl:hover:text-[#5da8ff] uppercase text-[14px]">
                                 <span className='text-[11px] relative top-[-4px] left-[-6px] text-gray-500'>02</span>
-                                Amas
+                                VIP
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" className="transition-colors duration-300 ease-in-out xl:hover:text-[#5da8ff] uppercase text-[14px]">
+                                <span className='text-[11px] relative top-[-4px] left-[-6px] text-gray-500'>03</span>
+                                Login
                             </a>
                         </li>
                     </ul>
