@@ -23,7 +23,7 @@ export default function Home() {
                     </span>
                 </h2>
 
-                <p className='text-[18px] m-0 p-0 w-full xl:w-[840px] text-left mt-4'>
+                <p className='text-[16px] m-0 p-0 w-full xl:w-[840px] text-left mt-4'>
                     Crypto Society is a community created by and for individuals passionate about cryptocurrency.
                     Our objective is to enlighten members about various aspects of crypto through the distribution of our research.
                     We encourage our members to engage in learning and to actively participate in sharing their insights.
@@ -52,15 +52,15 @@ export default function Home() {
                     <div className='flex flex-col xl:flex-row gap-10 xl:gap-20 mt-24'>
                         <div>
                             <h2 className='text-[60px] xl:text-[100px] m-0 p-0 leading-none uppercase text-[#6A90BA] font-bold mb-5'>LEARN</h2>
-                            <p>We bring awareness of the latest ground-breaking crypto projects to our community, including hosting regular AMA’s and live TA Market Overviews, thus teaching how to research and apply trading and hodling strategies.</p>
+                            <p className='text-[16px]'>We bring awareness of the latest ground-breaking crypto projects to our community, including hosting regular AMA’s and live TA Market Overviews, thus teaching how to research and apply trading and hodling strategies.</p>
                         </div>
                         <div>
                             <h2 className='text-[60px] xl:text-[100px] m-0 p-0 leading-none uppercase text-[#6A90BA] font-bold mb-5'>APPLY</h2>
-                            <p>With this applied learning the group is encouraged to research and share their findings with our members, actively getting involved, effectively benefitting the entire community.</p>
+                            <p className='text-[16px]'>With this applied learning the group is encouraged to research and share their findings with our members, actively getting involved, effectively benefitting the entire community.</p>
                         </div>
                         <div>
                             <h2 className='text-[60px] xl:text-[100px] m-0 p-0 leading-none uppercase text-[#6A90BA] font-bold mb-5'>SUCCEED</h2>
-                            <p>Crypto is a bumpy road but with so many eyes and ears actively contributing we regularly (and) successfully recognize great buying opportunities that ultimately lead to a lucrative investment.</p>
+                            <p className='text-[16px]'>Crypto is a bumpy road but with so many eyes and ears actively contributing we regularly (and) successfully recognize great buying opportunities that ultimately lead to a lucrative investment.</p>
                         </div>
                     </div>
                 </div>
@@ -76,11 +76,11 @@ export default function Home() {
                     VENTURE CAPITAL
                 </h2>
 
-                <p className='w-full max-w-[1000px] mt-5 mx-auto'>
+                <p className='w-full max-w-[1000px] mt-5 mx-auto text-[16px]'>
                     Crypto Society has also extended into a VC and has invested in over 70 projects over the last year including Kilt, UMEE, Retreeb, Star Atlas and Cryowar to name but a few.
                 </p>
 
-                <p className='w-full max-w-[1000px] mt-5 mx-auto'>
+                <p className='w-full max-w-[1000px] mt-5 mx-auto text-[16px]'>
                     As investors we aim to provide active support in the form of strategy, marketing, design, strategic partnership introductions, launchpad intros as well as active engagement on the project’s social media channels. It has thus been a natural evolution for us to have also taken on advisor roles to certain projects.
                 </p>
             </div>
