@@ -4,29 +4,6 @@ import React, { useEffect, useRef, useState } from 'react';
 
 function Blackwhole() {
     const containerRef = useRef(null);
-    const shadowRef = useRef(null);
-    let shakingInterval = null;
-
-    const startShaking = () => {
-        if (shadowRef.current) {
-            shadowRef.current.classList.add('shaking');
-        }
-        shakingInterval = setInterval(() => {
-            if (shadowRef.current) {
-                const randomX = Math.floor(Math.random() * 5 - 5); // Random number for X axis
-                const randomY = Math.floor(Math.random() * 5 - 5); // Random number for Y axis
-                shadowRef.current.style.transform = `translate(${randomX}px, ${randomY}px)`;
-            }
-        }, 50);
-    };
-    
-    const stopShaking = () => {
-        clearInterval(shakingInterval);
-        if (shadowRef.current) {
-            shadowRef.current.classList.remove('shaking');
-            shadowRef.current.style.transform = 'translate(0, 0)';
-        }
-    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -53,12 +30,7 @@ function Blackwhole() {
             <bh-photon-ring></bh-photon-ring>
             <bh-accretion></bh-accretion>
             <bh-backdrop></bh-backdrop>
-            <div
-                className='bh-shadow'
-                ref={shadowRef}
-                onMouseEnter={startShaking}
-                onMouseLeave={stopShaking}
-            ></div>
+            <div className='bh-shadow'></div>
         </div>
     );
 }

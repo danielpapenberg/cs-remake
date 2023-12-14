@@ -29,9 +29,9 @@ export default function Home() {
                     We encourage our members to engage in learning and to actively participate in sharing their insights.
                 </p>
 
-                <div className='flex gap-5 mt-2'>
-                    <button className='glow-on-hover py-5 px-10 mt-5 uppercase font-bold' type="button">FOR Individuals</button>
-                    <button className='glow-on-hover py-5 px-10 mt-5 uppercase font-bold' type="button">FOR Companies</button>
+                <div className='flex gap-5 mt-2 w-full'>
+                    <button className='glow-on-hover w-50 py-5 px-5 xl:px-10 mt-5 uppercase font-bold' type="button">FOR Individuals</button>
+                    <button className='glow-on-hover w-50 py-5 px-5 xl:px-10 mt-5 uppercase font-bold' type="button">FOR Companies</button>
                 </div>
             </div>
 
@@ -67,7 +67,7 @@ export default function Home() {
                 <div className='hidden xl:block xl:text-[1200px] absolute z-[-1] right-[50px] top-[-500px] text-[#212121] font-serif'>&</div>
             </div>
 
-            <div className='partner p-5 mt-20 xl:mt-60'>
+            <div className='partner px-5 pt-[50px] pb-[50px] mt-[50px] xl:mt-[300px] bg-[#22223460] w-full'>
                 <Partner />
             </div>
 

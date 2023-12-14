@@ -8,12 +8,12 @@ export default function Partner() {
                 OUR<p className='text-[#6A90BA] uppercase font-bold'>Partner</p>
             </h2>
                     
-            <ul className="flex gap-5 md:gap-10 my-10 md:my-20 md:pl-20 flex-wrap justify-center md:justify-center">
+            <ul className="flex gap-5 md:gap-10 mt-10 md:pl-20 flex-wrap justify-center md:justify-center">
                 { partner.map((item) => {
                     const { id, image, title } = item;
                     return (
                         <li key={id} className="text-center flex align-middle shrink-0">
-                            <Image src={'/images/logos/partner/' + image} width={150} height={50} alt={title} className="object-contain" />
+                            <Image src={'/images/logos/partner/' + image} width={150} height={50} alt={title} className="object-contain w50" />
                         </li>
                     )
                 })}

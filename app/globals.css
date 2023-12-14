@@ -227,6 +227,7 @@ h2 span:nth-child(2) {
 	background-size: 200% 200%;
 	animation: gradient 10s ease infinite;
 	overflow: hidden;
+	opacity: 0;
 }
 
 
@@ -266,9 +267,7 @@ bh-doppler {
 
 	50% {
 		transform: scale(3.4) rotate(-160deg);
-		/*     border-radius: 63% 50% 55% 42% / 67% 47% 65% 47%; */
 		border-radius: 83% 60% 55% 22% / 67% 97% 65% 47%;
-
 	}
 
 	0% {
@@ -283,16 +282,16 @@ bh-photon-ring {
 	border-radius: 100%;
 	grid-area: bh-shadow;
 	background: var(--photon);
-	animation: photon 8s ease-in-out 0.5s infinite alternate;
+	/* animation: photon 8s ease-in-out 0.5s infinite alternate; */
 	z-index: 2;
-	opacity: 0.6;
+	opacity: 0.9;
 	box-shadow: inset 50px -10px 20px 4px black;
-	border: 60px double #1057a8;
+	border: 60px double #0a3566;
 	/*   border-right-color: black; */
 	box-sizing: content-box;
 	padding: 40px;
 	background-clip: padding-box;
-	filter: blur(60px);
+	filter: blur(50px);
 }
 
 @keyframes photon {
@@ -300,21 +299,21 @@ bh-photon-ring {
 		transform: rotate(0deg);
 		border-radius: 51% 50% 155% 52% / 51% 13% 88% 48%;
 		opacity: .2;
-		filter: blur(40px);
+		filter: blur(50px);
 	}
 
 	50% {
 		transform: rotate(-160deg);
 		border-radius: 63% 50% 55% 42% / 67% 27% 65% 47%;
 		opacity: .4;
-		filter: blur(60px);
+		filter: blur(70px);
 	}
 
 	0% {
 		transform: rotate(0deg);
-		border-radius: 51% 50% 55% 52% / 51% 43% 38% 48%;
-		opacity: .6;
-		filter: blur(40px);
+		border-radius: 51% 50% 155% 52% / 51% 13% 88% 48%;
+		opacity: .2;
+		filter: blur(50px);
 	}
 }
 
@@ -324,8 +323,6 @@ bh-accretion {
 	background: var(--accretion);
 	grid-area: bh-shadow;
 	border-radius: 63% 50% 55% 42% / 67% 47% 65% 47%;
-	/*   animation: accretion 8s ease-in-out 0.5s infinite alternate; */
-	/*   animation: accretion 8s ease-in-out 0.5s infinite alternate; */
 	animation: accretion 8s ease-in-out 0.5s infinite alternate;
 	z-index: 3;
 
@@ -366,7 +363,6 @@ bh-backdrop {
 	display: flex;
 	border-radius: 100%;
 	grid-area: bh-shadow;
-	/* border-radius: 49% 50% 51% 42% / 67% 47% 65% 47%; */
 	animation: shadow 6s ease-in-out 0.5s infinite alternate;
 	z-index: 5;
 	box-shadow: 2px 3px 5px 1px rgb(255, 255, 255), 0 20px 160px 10px rgba(255, 255, 255, 0.7), -2px -3px 0px 1px rgba(255, 255, 255, 0.2), 0px 14px 30px 3px rgba(255, 255, 255, 0.5);
@@ -407,18 +403,16 @@ bh-backdrop {
 	animation-fill-mode: both;
 	transition-timing-function: ease-out;
 	animation-name: init;
-	animation-duration: 4s;
+	animation-duration: 6s;
 	animation-iteration-count: 1;
 }
 
 @keyframes init {
 	0% {
 		opacity: 0;
-		transform: scale(0.8);
 	}
 
 	100% {
-		opacity: 1;
-		transform: none;
+		opacity: 0.6;
 	}
 }
