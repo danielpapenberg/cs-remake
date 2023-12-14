@@ -46,7 +46,7 @@ export default function Home() {
 
             <div className='social relative p-5 lg:p-0'>
                 <div className='w-full lg:w-[1200px] mx-auto'>
-                    <h2 className='text-[60px] lg:text-[120px] m-0 p-0 leading-none uppercase text-center'><span className='text-[#6A90BA] uppercase font-bold'>CONNECT</span> WITH US</h2>
+                    {/* <h2 className='text-[60px] lg:text-[120px] m-0 p-0 leading-none uppercase text-center'><span className='text-[#6A90BA] uppercase font-bold'>CONNECT</span> WITH US</h2>
                     <div className='flex flex-col lg:flex-row gap-5 lg:gap-20 lg:items-end justify-center mt-5'>
                         <a className='flex items-center gap-5 lg:gap-10 mt-5 justify-center lg:justify-start transition-colors duration-300 ease-in-out lg:hover:text-[#299dd5]' href="https://t.me/cryptosocietyy" target="_blank" title="Telegram">
                             <FontAwesomeIcon icon={faTelegram} className='h-[50px] lg:h-[80px]' />
@@ -56,7 +56,7 @@ export default function Home() {
                             <FontAwesomeIcon icon={faTwitter} className='h-[50px] lg:h-[80px]' />
                             <span className='text-[18px] uppercase'>Twitter</span>
                         </a>
-                    </div>
+                    </div> */}
 
                     <div className='flex flex-col lg:flex-row gap-10 lg:gap-20 mt-24'>
                         <div>
