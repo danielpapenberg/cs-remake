@@ -14,8 +14,8 @@ export default function Home() {
             </div>
 
             <div className='absolute lg:right-[20%] top-[20%] lg:top-[40%] p-5 lg:p-0'>
-                <h2 className='text-[60px] lg:text-[120px] leading-none uppercase'>Empower</h2>
-                <h2 className='text-[60px] lg:text-[120px] leading-none text-[#6A90BA] uppercase font-bold overflow-hidden'>
+                <h2 className='text-[40px] lg:text-[120px] leading-none uppercase'>Empower</h2>
+                <h2 className='text-[40px] lg:text-[120px] leading-none text-[#6A90BA] uppercase font-bold overflow-hidden'>
                     Your&nbsp;
                     <span className="word-slider">
                         <span className="slide">Crypto</span>
