@@ -35,13 +35,19 @@ export default function RootLayout({ children }) {
                         </li>
                         <li>
                             <a href="#" className="transition-colors duration-300 ease-in-out lg:hover:text-[#5da8ff] uppercase text-[14px]">
+                                <span className='text-[11px] relative top-[-4px] left-[-6px] text-gray-500'>02</span>
+                                SWAP
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" className="transition-colors duration-300 ease-in-out lg:hover:text-[#5da8ff] uppercase text-[14px]">
                                 <span className='text-[11px] relative top-[-4px] left-[-6px] text-gray-500'>SOON</span>
                                 VIP
                             </a>
                         </li>
                         <li>
                             <a href="#" className="transition-colors duration-300 ease-in-out lg:hover:text-[#5da8ff] uppercase text-[14px]">
-                                <span className='text-[11px] relative top-[-4px] left-[-6px] text-gray-500'>03</span>
+                                <span className='text-[11px] relative top-[-4px] left-[-6px] text-gray-500'>SOON</span>
                                 Login
                             </a>
                         </li>
