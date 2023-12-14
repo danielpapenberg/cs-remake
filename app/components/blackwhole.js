@@ -4,25 +4,42 @@ import React, { useEffect, useRef, useState } from 'react';
 
 function Blackwhole() {
     const containerRef = useRef(null);
+    const [scrollY, setScrollY] = useState(0);
+    const lastScrollY = useRef(0);
 
     useEffect(() => {
+        const lerp = (start, end, alpha) => start + (end - start) * alpha;
+
         const handleScroll = () => {
+            setScrollY(window.scrollY);
+        };
+
+        const animate = () => {
             const { current } = containerRef;
             if (current) {
-                // Position
-                const translateX = window.scrollY / 5 * 1.5 *-1;
-                const translateY = window.scrollY / 5;
-                // current.style.transform = `translate(${translateX}px, ${translateY}px)`;
-                current.style.left = `${translateX - 300}px`;
-                current.style.top = `${translateY}px`;
+                // Delayed scroll position
+                lastScrollY.current = lerp(lastScrollY.current, scrollY, 0.05);
+
+                const targetX = lastScrollY.current / 5 * 1.5 * -1;
+                const targetY = lastScrollY.current / 5;
+
+                const currentX = parseFloat(current.style.left || 0);
+                const currentY = parseFloat(current.style.top || 0);
+
+                current.style.left = `${lerp(currentX, targetX - 300, 0.1)}px`;
+                current.style.top = `${lerp(currentY, targetY + 100, 0.1)}px`;
             }
+
+            requestAnimationFrame(animate);
         };
 
         window.addEventListener('scroll', handleScroll);
-        handleScroll();
+        requestAnimationFrame(animate);
 
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [scrollY]);
 
     return (
         <div className="blackWhole z-[-1]" ref={containerRef}>
