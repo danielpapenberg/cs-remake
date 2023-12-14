@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body className={roboto_c.className}>
-                <h1 className='w-[300px] m-5'>
+                <h1 className='w-[300px] m-5 fixed'>
                     <Image src={'/images/logos/logo-crypto-society.png'} width={300} height={100} alt="Crypto Society"  />
                 </h1>
                 <div className='hidden lg:block fixed top-[32px] right-[40px] right-lg-[100px]'>

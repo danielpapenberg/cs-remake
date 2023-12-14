@@ -8,10 +8,7 @@ import H2 from './components/headlines/H2';
 export default function Home() {
     return (
         <main>
-            <div className="bg"></div>
-            <div className='h-[100vh]'></div>
-            
-            <div className='hidden md:block'>
+            <div className='hidden md:block h-[100vh]'>
                 <BlackWhole />
             </div>
 

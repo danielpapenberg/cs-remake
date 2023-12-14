@@ -21,22 +21,6 @@ body {
 	background-color: rgb(15, 15, 21);
 }
 
-.bg {
-	position: fixed;
-	top: -50%;
-	left: -50%;
-	right: -50%;
-	bottom: -50%;
-	width: 200%;
-	height: 200vh;
-	background: transparent url('/images/noise-transparent.png') repeat 0 0;
-	background-repeat: repeat;
-	animation: bg-animation .2s infinite;
-	opacity: .9;
-	visibility: visible;
-	z-index: -1;
-}
-
 h2 {
 	position: relative;
 	user-select: none;
@@ -221,8 +205,6 @@ h2 span:nth-child(2) {
 
 .blackWhole {
 	position: fixed;
-	top: 0;
-	left: 0;
 	height: 100vh;
 	display: grid;
 	place-items: center;
