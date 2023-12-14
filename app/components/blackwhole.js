@@ -42,12 +42,14 @@ function Blackwhole() {
     }, [scrollY]);
 
     return (
-        <div className="blackWhole z-[-1]" ref={containerRef}>
-            <bh-doppler></bh-doppler>
-            <bh-photon-ring></bh-photon-ring>
-            <bh-accretion></bh-accretion>
-            <bh-backdrop></bh-backdrop>
-            <div className='bh-shadow'></div>
+        <div className='hidden md:block'>
+            <div className="blackWhole z-[-1]" ref={containerRef}>
+                <bh-doppler></bh-doppler>
+                <bh-photon-ring></bh-photon-ring>
+                <bh-accretion></bh-accretion>
+                <bh-backdrop></bh-backdrop>
+                <div className='bh-shadow'></div>
+            </div>
         </div>
     );
 }
