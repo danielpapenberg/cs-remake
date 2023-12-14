@@ -58,7 +58,7 @@ export default function Home() {
                         </a>
                     </div> */}
 
-                    <div className='flex flex-col lg:flex-row gap-10 lg:gap-20 mt-24'>
+                    <div className='flex flex-col lg:flex-row gap-10 lg:gap-20'>
                         <div>
                             <h2 className='text-[60px] lg:text-[100px] m-0 p-0 leading-none uppercase text-[#6A90BA] font-bold mb-5'>LEARN</h2>
                             <p className='text-[16px]'>We bring awareness of the latest ground-breaking crypto projects to our community, including hosting regular AMA’s and live TA Market Overviews, thus teaching how to research and apply trading and hodling strategies.</p>
