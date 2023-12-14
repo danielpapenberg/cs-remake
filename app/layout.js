@@ -57,8 +57,8 @@ export default function RootLayout({ children }) {
                 <footer className='mt-40 pb-5 text-[#6a90ba70] uppercase'>
                     <div className='flex flex-col justify-center items-center gap-10'>
                         <div className='flex gap-5'>
-                            <a href="https://twitter.com/cryptosocietytg" target="_blank" className='transition-colors duration-300 ease-in-out lg:hover:text-[#ffffff]'><FontAwesomeIcon icon={faTelegram} className='h-[25px] lg:h-[40px]' /></a>
-                            <a href="https://t.me/cryptosocietyy" target="_blank" className='transition-colors duration-300 ease-in-out lg:hover:text-[#ffffff]'><FontAwesomeIcon icon={faTwitter} className='h-[25px] lg:h-[40px]' /></a>
+                            <a href="https://twitter.com/cryptosocietytg" title="Telegram" target="_blank" className='transition-colors duration-300 ease-in-out lg:hover:text-[#ffffff]'><FontAwesomeIcon icon={faTelegram} className='h-[25px] lg:h-[40px]' /></a>
+                            <a href="https://t.me/cryptosocietyy" title="Twitter" target="_blank" className='transition-colors duration-300 ease-in-out lg:hover:text-[#ffffff]'><FontAwesomeIcon icon={faTwitter} className='h-[25px] lg:h-[40px]' /></a>
                         </div>
 
                         {/* <div>

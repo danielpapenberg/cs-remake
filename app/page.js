@@ -2,6 +2,8 @@ import BlackWhole from './components/blackwhole';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faTelegram } from "@fortawesome/free-brands-svg-icons";
 import Partner from './components/homepage/Partner';
+import PrimaryButton from './components/buttons/PrimaryButton';
+import H2 from './components/headlines/H2';
 
 export default function Home() {
     return (
@@ -35,12 +37,12 @@ export default function Home() {
                 </div> */}
 
                 <div className='flex gap-5 mt-2 w-full'>
-                    <a className='glow-on-hover glow-on-hover-active w-50 py-5 px-5 lg:px-10 mt-5 uppercase font-bold flex gap-5 item-center justify-center cursor-pointer' href="https://t.me/cryptosocietyy" title="Telegram" target="_blank" type="button">
+                    <PrimaryButton className="glow-on-hover-active" href="https://t.me/cryptosocietyy" title="Telegram" target="_blank">
                         Telegram <FontAwesomeIcon icon={faTelegram} className='h-[24px]' />
-                    </a>
-                    <a className='glow-on-hover w-50 py-5 px-5 lg:px-10 mt-5 uppercase font-bold flex gap-5 item-center justify-center cursor-pointer' href="https://twitter.com/cryptosocietytg" title="Twitter" target="_blank" type="button">
+                    </PrimaryButton>
+                    <PrimaryButton href="https://twitter.com/cryptosocietytg" title="Twitter" target="_blank">
                         Twitter <FontAwesomeIcon icon={faTwitter} className='h-[24px]' />
-                    </a>
+                    </PrimaryButton>
                 </div>
             </div>
 
@@ -60,15 +62,15 @@ export default function Home() {
 
                     <div className='flex flex-col lg:flex-row gap-10 lg:gap-20'>
                         <div>
-                            <h2 className='text-[60px] lg:text-[100px] m-0 p-0 leading-none uppercase text-[#6A90BA] font-bold mb-5'>LEARN</h2>
+                            <H2>LEARN</H2>
                             <p className='text-[16px]'>We bring awareness of the latest ground-breaking crypto projects to our community, including hosting regular AMA’s and live TA Market Overviews, thus teaching how to research and apply trading and hodling strategies.</p>
                         </div>
                         <div>
-                            <h2 className='text-[60px] lg:text-[100px] m-0 p-0 leading-none uppercase text-[#6A90BA] font-bold mb-5'>APPLY</h2>
+                            <H2>APPLY</H2>
                             <p className='text-[16px]'>With this applied learning the group is encouraged to research and share their findings with our members, actively getting involved, effectively benefitting the entire community.</p>
                         </div>
                         <div>
-                            <h2 className='text-[60px] lg:text-[100px] m-0 p-0 leading-none uppercase text-[#6A90BA] font-bold mb-5'>SUCCEED</h2>
+                            <H2>SUCCEED</H2>
                             <p className='text-[16px]'>Crypto is a bumpy road but with so many eyes and ears actively contributing we regularly (and) successfully recognize great buying opportunities that ultimately lead to a lucrative investment.</p>
                         </div>
                     </div>
@@ -81,9 +83,9 @@ export default function Home() {
             </div>
 
             <div className='ventureCapital p-5 lg:text-center mt-20 lg:mt-40'>
-                <h2 className='text-[60px] lg:text-[120px] m-0 p-0 leading-none uppercase text-[#6A90BA] font-bold'>
+                <H2>
                     VENTURE CAPITAL
-                </h2>
+                </H2>
 
                 <p className='w-full max-w-[1000px] mt-5 mx-auto text-[16px]'>
                     Crypto Society has also extended into a VC and has invested in over 70 projects over the last year including Kilt, UMEE, Retreeb, Star Atlas and Cryowar to name but a few.

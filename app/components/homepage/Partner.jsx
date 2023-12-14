@@ -1,13 +1,12 @@
 import Image from 'next/image';
 import partner from './data/partner.json';
+import H2 from '../../components/headlines/H2';
 
 export default function Partner() {
     return (
         <>
-            <h2 className='text-[60px] lg:text-[120px] m-0 p-0 leading-none uppercase lg:text-center'>
-                OUR<p className='text-[#6A90BA] uppercase font-bold'>Partner</p>
-            </h2>
-                    
+            <H2 className='text-center'>OUR<p className='text-[#6A90BA] uppercase font-bold'>Partner</p></H2>
+
             <ul className="flex gap-5 md:gap-10 mt-10 flex-wrap justify-center md:justify-center">
                 { partner.map((item) => {
                     const { id, image, title } = item;
