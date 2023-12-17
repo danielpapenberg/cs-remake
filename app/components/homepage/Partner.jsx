@@ -5,7 +5,7 @@ import H2 from '../../components/headlines/H2';
 export default function Partner() {
     return (
         <>
-            <H2 className='text-center'>OUR<p className='text-[#6A90BA] uppercase font-bold'>Partner</p></H2>
+            <H2 className='text-center'>OUR Partner</H2>
 
             <ul className="flex gap-5 md:gap-10 mt-10 flex-wrap justify-center md:justify-center">
                 { partner.map((item) => {

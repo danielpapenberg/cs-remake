@@ -24,7 +24,9 @@ body {
 h2 {
 	position: relative;
 	user-select: none;
+	letter-spacing: -8px;
 }
+
 
 h2 span:nth-child(2) {
 	position: absolute;
@@ -44,7 +46,6 @@ h2 span:nth-child(2) {
 
 .word-slider {
 	display: inline-block;
-	overflow: hidden;
 	vertical-align: bottom;
 }
 

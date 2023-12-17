@@ -2,6 +2,8 @@ import { Open_Sans } from 'next/font/google'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faTelegram } from "@fortawesome/free-brands-svg-icons";
 import Image from 'next/image';
+import Navigation from './components/header/Navigation';
+import Link from 'next/link';
 
 const roboto_c = Open_Sans({
     subsets: ['latin'],
@@ -23,35 +25,12 @@ export default function RootLayout({ children }) {
         <html lang="en">
             <body className={roboto_c.className}>
                 <h1 className='w-[300px] m-5 fixed'>
-                    <Image src={'/images/logos/logo-crypto-society.png'} width={300} height={100} alt="Crypto Society"  />
+                    <Link href="/">
+                        <Image src={'/images/logos/logo-crypto-society.png'} width={300} height={100} alt="Crypto Society"  />
+                    </Link>
                 </h1>
                 <div className='hidden lg:block fixed top-[32px] right-[40px] right-lg-[100px]'>
-                    <ul className='flex gap-10'>
-                        <li>
-                            <a href="/" className="transition-colors duration-300 ease-in-out lg:hover:text-[#5da8ff] uppercase text-[14px]">
-                                <span className='text-[11px] relative top-[-4px] left-[-6px] text-gray-500'>01</span>
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="transition-colors duration-300 ease-in-out lg:hover:text-[#5da8ff] uppercase text-[14px]">
-                                <span className='text-[11px] relative top-[-4px] left-[-6px] text-gray-500'>02</span>
-                                SWAP
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="transition-colors duration-300 ease-in-out lg:hover:text-[#5da8ff] uppercase text-[14px]">
-                                <span className='text-[11px] relative top-[-4px] left-[-6px] text-gray-500'>SOON</span>
-                                VIP
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="transition-colors duration-300 ease-in-out lg:hover:text-[#5da8ff] uppercase text-[14px]">
-                                <span className='text-[11px] relative top-[-4px] left-[-6px] text-gray-500'>SOON</span>
-                                Login
-                            </a>
-                        </li>
-                    </ul>
+                    <Navigation />
                 </div>
                 {children}
                 <footer className='mt-40 pb-5 text-[#6a90ba70] uppercase'>

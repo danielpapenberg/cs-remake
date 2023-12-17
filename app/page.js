@@ -3,17 +3,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faTelegram } from "@fortawesome/free-brands-svg-icons";
 import Partner from './components/homepage/Partner';
 import PrimaryButton from './components/buttons/PrimaryButton';
+import SecondaryButton from './components/buttons/SecondaryButton';
 import H2 from './components/headlines/H2';
 
 export default function Home() {
     return (
-        <main>
+        <main className='homepage'>
             <div className='h-[100vh]'>
                 <BlackWhole />
             </div>
 
             <div className='absolute lg:right-[20%] top-[20%] lg:top-[40%] p-5 lg:p-0'>
-                <h2 className='text-[60px] lg:text-[120px] leading-none uppercase'>Empower</h2>
+                <h2 className='text-[60px] lg:text-[120px] leading-none uppercase font-bold'>Empower</h2>
                 <h2 className='text-[60px] lg:text-[120px] leading-none text-[#6A90BA] uppercase font-bold overflow-hidden'>
                     Your&nbsp;
                     <span className="word-slider">
@@ -37,9 +38,9 @@ export default function Home() {
                     <PrimaryButton className="glow-on-hover-active" href="https://t.me/cryptosocietyy" title="Telegram" target="_blank">
                         Telegram <FontAwesomeIcon icon={faTelegram} className='h-[24px]' />
                     </PrimaryButton>
-                    <PrimaryButton href="https://twitter.com/cryptosocietytg" title="Twitter" target="_blank">
+                    <SecondaryButton href="https://twitter.com/cryptosocietytg" title="Twitter" target="_blank">
                         Twitter <FontAwesomeIcon icon={faTwitter} className='h-[24px]' />
-                    </PrimaryButton>
+                    </SecondaryButton>
                 </div>
             </div>
 

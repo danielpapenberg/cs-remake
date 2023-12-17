@@ -1,20 +1,16 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import SecondaryButton from './SecondaryButton';
 
 const PrimaryButton = (props) => {
-    const classNames = `glow-on-hover w-50 py-5 px-5 lg:px-10 mt-5 uppercase font-bold flex gap-5 item-center justify-center cursor-pointer select-none ${props.className || ''}`;
-
+    const classNames = `glow-on-hover-active ${props.className || ''}`;
     return (
-        <a 
+        <SecondaryButton 
             className={classNames}
             href={props.href || '#'} 
             title={props.title || ''}
             target={props.target || ''}
-            rel="noopener noreferrer"
-            type="button"
         >
             {props.children}
-        </a>
+        </SecondaryButton>
     );
 };
 
