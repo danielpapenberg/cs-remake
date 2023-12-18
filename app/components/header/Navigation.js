@@ -24,12 +24,6 @@ const Navigation = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link href="/swap" className={`${linkStyles}${pathname === '/swap' ? ' text-[#5da8ff]' : ''}`}>
-                        <span className='text-[11px] relative top-[-4px] left-[-6px] text-gray-500'>02</span>
-                        SWAP
-                    </Link>
-                </li>
-                <li>
                     <Link href="/" className={`${linkStyles}${pathname === '/xxx' ? ' text-[#5da8ff]' : ''}`}>
                         <span className='text-[11px] relative top-[-4px] left-[-6px] text-gray-500'>SOON</span>
                         VIP
