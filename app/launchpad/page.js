@@ -10,7 +10,7 @@ export default function Launchpad() {
         <main className='landingpage py-40 px-5'>
             <H1>Launchpad</H1>
 
-            <FontAwesomeIcon icon={faRocket} className='text-[#00000073] absolute right-[4%] top-[20%] text-[600px] md:text-[2000px] z-[-1] select-none' />
+            <FontAwesomeIcon icon={faRocket} className='text-[#00000073] absolute right-[4%] top-[20%] md:top-[10%] text-[600px] md:text-[1800px] z-[-1] select-none' />
 
             <FullWidthSlider data={icos} />
 

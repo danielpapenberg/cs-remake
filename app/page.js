@@ -36,12 +36,12 @@ export default function Home() {
                 </div> */}
 
                 <div className='flex gap-5 mt-2 w-full'>
-                    <PrimaryButton className="glow-on-hover-active" href="https://t.me/cryptosocietyy" title="Telegram" target="_blank">
-                        Telegram <FontAwesomeIcon icon={faTelegram} className='h-[24px]' />
-                    </PrimaryButton>
                     <SecondaryButton href="/launchpad" title="Launchpad">
                         Launchpad <FontAwesomeIcon icon={faRocket} className='h-[24px]' />
                     </SecondaryButton>
+                    <PrimaryButton className="glow-on-hover-active" href="https://t.me/cryptosocietyy" title="Telegram" target="_blank">
+                        <FontAwesomeIcon icon={faTelegram} className='h-[24px]' />
+                    </PrimaryButton>
                 </div>
             </div>
 
