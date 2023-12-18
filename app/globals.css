@@ -124,6 +124,7 @@ h2 span:nth-child(2) {
 }
 
 @keyframes slideWord {
+
 	0%,
 	45%,
 	100% {
@@ -139,8 +140,8 @@ h2 span:nth-child(2) {
 
 .glow-on-hover {
 	position: relative;
-    border-radius: 30px;
-    border: 1px solid #222;
+	border-radius: 30px;
+	border: 1px solid #222;
 }
 
 .glow-on-hover:before {
@@ -344,8 +345,8 @@ bh-backdrop {
 .bh-shadow {
 	width: 5vw;
 	height: 5vw;
-    min-width: 100px;
-    min-height: 100px;
+	min-width: 100px;
+	min-height: 100px;
 	background: black;
 	display: flex;
 	border-radius: 100%;
@@ -353,11 +354,11 @@ bh-backdrop {
 	animation: shadow 6s ease-in-out 0.5s infinite alternate;
 	z-index: 5;
 	box-shadow: 2px 3px 5px 1px rgb(255, 255, 255), 0 20px 160px 10px rgba(255, 255, 255, 0.7), -2px -3px 0px 1px rgba(255, 255, 255, 0.2), 0px 14px 30px 3px rgba(255, 255, 255, 0.5);
-    cursor: none;
+	cursor: none;
 }
 
 .bh-shadow.shaking {
-    animation: none;
+	animation: none;
 }
 
 @keyframes shadow {
@@ -402,4 +403,64 @@ bh-backdrop {
 	100% {
 		opacity: 0.6;
 	}
+}
+
+.city-lights {
+	animation: lights 5s 1ms linear infinite;
+}
+
+@keyframes lights {
+	0% {
+		color: hsl(230, 40%, 80%);
+		text-shadow:
+			0 0 1em hsla(320, 100%, 50%, 0.2),
+			0 0 0.125em hsla(320, 100%, 60%, 0.3),
+			-1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+			1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+	}
+
+	30% {
+		color: hsl(230, 80%, 90%);
+		text-shadow:
+			0 0 1em hsla(320, 100%, 50%, 0.5),
+			0 0 0.125em hsla(320, 100%, 60%, 0.5),
+			-0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+			0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+	}
+
+	40% {
+		color: hsl(230, 100%, 95%);
+		text-shadow:
+			0 0 1em hsla(320, 100%, 50%, 0.5),
+			0 0 0.125em hsla(320, 100%, 90%, 0.5),
+			-0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+			0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+	}
+
+	70% {
+		color: hsl(230, 80%, 90%);
+		text-shadow:
+			0 0 1em hsla(320, 100%, 50%, 0.5),
+			0 0 0.125em hsla(320, 100%, 60%, 0.5),
+			0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+			-0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+	}
+
+	100% {
+		color: hsl(230, 40%, 80%);
+		text-shadow:
+			0 0 1em hsla(320, 100%, 50%, 0.2),
+			0 0 0.125em hsla(320, 100%, 60%, 0.3),
+			1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+			-1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+	}
+}
+
+.formElementInputText {
+	display: block;
+	border-radius: 10px;
+	font-size: 16px;
+	background-color: transparent;
+	border: 1px solid #555;
+	padding: 10px;
 }
