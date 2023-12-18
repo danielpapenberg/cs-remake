@@ -1,6 +1,7 @@
 import BlackWhole from './components/blackwhole';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter, faTelegram } from "@fortawesome/free-brands-svg-icons";
+import { faTelegram } from "@fortawesome/free-brands-svg-icons";
+import { faRocket } from "@fortawesome/free-solid-svg-icons";
 import Partner from './components/homepage/Partner';
 import PrimaryButton from './components/buttons/PrimaryButton';
 import SecondaryButton from './components/buttons/SecondaryButton';
@@ -38,8 +39,8 @@ export default function Home() {
                     <PrimaryButton className="glow-on-hover-active" href="https://t.me/cryptosocietyy" title="Telegram" target="_blank">
                         Telegram <FontAwesomeIcon icon={faTelegram} className='h-[24px]' />
                     </PrimaryButton>
-                    <SecondaryButton href="https://twitter.com/cryptosocietytg" title="Twitter" target="_blank">
-                        Twitter <FontAwesomeIcon icon={faTwitter} className='h-[24px]' />
+                    <SecondaryButton href="/launchpad" title="Launchpad">
+                        Launchpad <FontAwesomeIcon icon={faRocket} className='h-[24px]' />
                     </SecondaryButton>
                 </div>
             </div>

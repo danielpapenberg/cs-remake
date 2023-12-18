@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
 const CountdownTimer = ({ endDate }) => {
-    const [timeLeft, setTimeLeft] = useState([]);
+    const [timeLeft, setTimeLeft] = useState({});
     const [timerComponents, setTimerComponents] = useState([]);
 
     useEffect(() => {
+        // Function to calculate the time left until endDate
         const calculateTimeLeft = () => {
             const now = new Date().getTime();
-            const endTimestamp = new Date(endDate*1000).getTime();
+            const endTimestamp = new Date(endDate * 1000).getTime();
             const difference = endTimestamp - now;
-            console.log(endTimestamp)
-    
+
             if (difference > 0) {
                 return {
                     days: Math.floor(difference / (1000 * 60 * 60 * 24)),
@@ -18,7 +18,11 @@ const CountdownTimer = ({ endDate }) => {
                     minutes: Math.floor((difference / 1000 / 60) % 60),
                 };
             }
-            return null;
+            return {
+                days: 0,
+                hours: 0,
+                minutes: 0,
+            };
         };
 
         const timer = setInterval(() => {
@@ -28,21 +32,26 @@ const CountdownTimer = ({ endDate }) => {
         return () => clearInterval(timer);
     }, [endDate]);
 
+    // Effect for updating the timer components
     useEffect(() => {
-        var data = [];
-        Object.keys(timeLeft).forEach((interval) => {
+        const intervalElements = Object.keys(timeLeft).map(interval => {
             if (timeLeft[interval] > 0) {
-                data.push(
+                return (
                     <span key={interval}>
                         {timeLeft[interval]} {interval}{" "}
                     </span>
                 );
             }
-        });
-        setTimerComponents(data);
+            return null;
+        }).filter(Boolean);
+
+        setTimerComponents(intervalElements);
     }, [timeLeft]);
 
-    if (!timeLeft) {
+    // Check if the countdown has ended
+    const isCountdownEnded = timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0;
+
+    if (isCountdownEnded) {
         return <span>Ended!</span>;
     }
 

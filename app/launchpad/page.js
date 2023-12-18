@@ -2,11 +2,15 @@
 import H1 from '../components/headlines/H1';
 import FullWidthSlider from '../components/FullWidthSlider/FullWidthSlider';
 import icos from './data/icos.json';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRocket } from "@fortawesome/free-solid-svg-icons";
 
 export default function Launchpad() {
     return (
-        <main className='landingpage py-40 px-5 text-center'>
+        <main className='landingpage py-40 px-5'>
             <H1>Launchpad</H1>
+
+            <FontAwesomeIcon icon={faRocket} className='text-[#00000073] absolute right-[4%] top-[20%] text-[600px] md:text-[2000px] z-[-1] select-none' />
 
             <FullWidthSlider data={icos} />
 

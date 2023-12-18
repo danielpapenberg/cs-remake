@@ -13,7 +13,7 @@ const icos = [
        "text":"XRP",
        "desc":"Ripple is a privately-held fintech company that provides a global payment solution via its patented payment network called Ripple Network (also known as RippleNet). ",
        "image":"https://assets.coingecko.com/coins/images/44/standard/xrp-symbol-white-128.png?1696501442",
-       "endDate": "1708258242"
+       "endDate": "170825822"
     },
     {
        "id":3,
