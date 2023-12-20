@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import React, { useRef } from 'react';
 import dynamic from 'next/dynamic';
 
