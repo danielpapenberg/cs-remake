@@ -4,7 +4,7 @@ import { faTwitter, faTelegram } from "@fortawesome/free-brands-svg-icons";
 import Image from 'next/image';
 import Navigation from './components/header/Navigation';
 import Link from 'next/link';
-import { Web3Modal } from "./context/Web3Modal";
+import { Web3Modal } from "./contexts/Web3Modal";
 
 const roboto_c = Open_Sans({
     subsets: ['latin'],

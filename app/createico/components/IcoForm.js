@@ -96,8 +96,8 @@ const IcoForm = ({ useForm }) => {
             </div>
 
             <div className='formGroup'>
-                <FormButton title="Send" type="submit" className='ms-auto'>
-                    Register
+                <FormButton title="Save" type="submit" className='ms-auto'>
+                    Save
                 </FormButton>
             </div>
         </form>

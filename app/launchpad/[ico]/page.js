@@ -26,7 +26,7 @@ export default function Ico({ params }) {
         <main className='landingpage py-40 px-5 text-center'>
                 {
                     isLoading ? 
-                        <div class="lds-ripple"><div></div><div></div></div>
+                        <div className="lds-ripple"><div></div><div></div></div>
                     :
                         <div className="relative w-full md:w-[1000px] mx-auto flex-shrink-0 p-10 flex flex-col border border-[#333] border-solid rounded-[50px] text-left">
                             <Image src={`/images/icos/${ico.image_url}`} width={50} height={50} alt={ico.name} className='absolute right-[25px] top-[-25px] rounded-[100px]'/>

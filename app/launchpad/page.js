@@ -27,7 +27,7 @@ export default function Launchpad() {
             <FontAwesomeIcon icon={faRocket} className='text-[#00000073] absolute right-[4%] top-[20%] md:top-[10%] text-[600px] md:text-[1800px] z-[-1] select-none' />
             {
                 isLoading ? 
-                    <div class="lds-ripple"><div></div><div></div></div>
+                    <div className="lds-ripple"><div></div><div></div></div>
                 :
                     <FullWidthSlider data={icos} />
             }

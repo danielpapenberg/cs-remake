@@ -1,12 +1,10 @@
 "use client"
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation'
-import { useWeb3Modal, useDisconnect } from '@web3modal/ethers5/react'
-import { useAccount } from 'wagmi'
+import { usePathname } from 'next/navigation';
+import { useWeb3Modal } from '@web3modal/ethers5/react';
+import { useAccount } from 'wagmi';
 import { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWallet } from "@fortawesome/free-solid-svg-icons";
 
 const Navigation = () => {
     const pathname = usePathname()
@@ -15,10 +13,25 @@ const Navigation = () => {
     const { open } = useWeb3Modal();
     const { address, isConnecting, isDisconnected } = useAccount();
     const [ loading, setLoading] = useState(true);
+    const [ admin, setAdmin] = useState(false);
 
     useEffect(() => {
         setLoading(isConnecting);
     }, [isConnecting]);
+
+    useEffect(() => {
+        const checkEligibility = async () => {
+            if (address) {
+                const response = await fetch(`/api/admins/${address}`);
+                const data = await response.json();
+                if (data.status === 'Valid') {
+                    setAdmin(true);
+                }
+            }
+        };
+    
+        checkEligibility();
+    }, [address]);
 
     return (
         <nav>
@@ -36,12 +49,15 @@ const Navigation = () => {
                     </Link>
                 </li>
 
-                <li className='flex items-center'>
-                    <Link href="/createico" className={`${linkStyles}${pathname === '/createico' ? ' text-[#5da8ff]' : ''}`}>
-                        <span className={linkStylesSpan}>admin</span>
-                        Create ICO
-                    </Link>
-                </li>
+                {
+                    admin && !isDisconnected && 
+                        <li className='flex items-center'>
+                            <Link href="/createico" className={`${linkStyles}${pathname === '/createico' ? ' text-[#5da8ff]' : ''}`}>
+                                <span className={linkStylesSpan}>admin</span>
+                                Create ICO
+                            </Link>
+                        </li>
+                }
             
                 <li onClick={() => open()} className={`${linkStyles} font-bold`}>
                     {
