@@ -13,21 +13,25 @@
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@tinymce/tinymce-react": "^4.3.2",
     "@web3modal/ethers5": "^3.5.0",
     "@web3modal/wagmi": "^3.5.0",
     "ethers": "^5.7.2",
+    "mysql2": "^3.6.5",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
-    "sass": "^1.69.5",
+    "react-hook-form": "^7.49.2",
     "viem": "^1.20.1",
     "wagmi": "^1.4.12"
   },
   "devDependencies": {
+    "@types/react": "18.2.45",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
     "postcss": "^8",
+    "sass": "^1.69.5",
     "tailwindcss": "^3.3.0"
   }
 }

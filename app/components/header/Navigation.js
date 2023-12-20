@@ -11,7 +11,7 @@ import { faWallet } from "@fortawesome/free-solid-svg-icons";
 const Navigation = () => {
     const pathname = usePathname()
     const linkStyles = 'transition-colors duration-300 ease-in-out lg:hover:text-[#5da8ff] uppercase text-[14px] cursor-pointer relative select-none';
-    const linkStylesSpan = 'text-[11px] relative top-[-4px] left-[-6px] text-gray-500';
+    const linkStylesSpan = 'text-[11px] relative top-[-4px] left-[-6px] text-[#666]';
     const { open } = useWeb3Modal();
     const { address, isConnecting, isDisconnected } = useAccount();
     const [ loading, setLoading] = useState(true);
@@ -33,6 +33,13 @@ const Navigation = () => {
                     <Link href="/launchpad" className={`${linkStyles}${pathname === '/launchpad' ? ' text-[#5da8ff]' : ''}`}>
                         <span className={linkStylesSpan}>02</span>
                         Launchpad
+                    </Link>
+                </li>
+
+                <li className='flex items-center'>
+                    <Link href="/createico" className={`${linkStyles}${pathname === '/createico' ? ' text-[#5da8ff]' : ''}`}>
+                        <span className={linkStylesSpan}>admin</span>
+                        Create ICO
                     </Link>
                 </li>
             

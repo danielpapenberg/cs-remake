@@ -8,6 +8,7 @@ const PrimaryButton = (props) => {
             href={props.href || '#'} 
             title={props.title || ''}
             target={props.target || ''}
+            type={props.type || ''}
         >
             {props.children}
         </SecondaryButton>

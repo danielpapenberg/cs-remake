@@ -9,7 +9,7 @@ const SecondaryButton = (props) => {
             title={props.title || ''}
             target={props.target || ''}
             rel="noopener noreferrer"
-            type="button"
+            type={props.type || 'button'}
         >
             {props.children}
         </Link>
