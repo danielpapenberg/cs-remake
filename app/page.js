@@ -2,7 +2,7 @@ import BlackWhole from './components/blackwhole';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTelegram } from "@fortawesome/free-brands-svg-icons";
 import { faRocket } from "@fortawesome/free-solid-svg-icons";
-import Partner from './components/homepage/Partner';
+// import Partner from './components/homepage/Partner';
 import PrimaryButton from './components/buttons/PrimaryButton';
 import SecondaryButton from './components/buttons/SecondaryButton';
 import H2 from './components/headlines/H2';
@@ -36,11 +36,11 @@ export default function Home() {
                 </div> */}
 
                 <div className='flex gap-5 mt-2 w-full'>
-                    <SecondaryButton href="/launchpad" title="Launchpad">
+                    {/* <SecondaryButton href="/launchpad" title="Launchpad">
                         Launchpad <FontAwesomeIcon icon={faRocket} className='h-[24px]' />
-                    </SecondaryButton>
+                    </SecondaryButton> */}
                     <PrimaryButton className="glow-on-hover-active" href="https://t.me/cryptosocietyy" title="Telegram" target="_blank">
-                        <FontAwesomeIcon icon={faTelegram} className='h-[24px]' />
+                        Telegram <FontAwesomeIcon icon={faTelegram} className='h-[24px]' />
                     </PrimaryButton>
                 </div>
             </div>
@@ -77,9 +77,9 @@ export default function Home() {
                 <div className='hidden lg:block lg:text-[1200px] absolute z-[-1] right-[50px] top-[-500px] text-[#212121] font-serif'>&</div>
             </div>
 
-            <div className='partner px-5 pt-[50px] pb-[50px] mt-[50px] lg:mt-[300px] bg-[#22223460] w-full'>
+            {/* <div className='partner px-5 pt-[50px] pb-[50px] mt-[50px] lg:mt-[300px] bg-[#22223460] w-full'>
                 <Partner />
-            </div>
+            </div> */}
 
             <div className='ventureCapital p-5 lg:text-center mt-20 lg:mt-40'>
                 <H2>
