@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTelegram } from "@fortawesome/free-brands-svg-icons";
 // import { faRocket } from "@fortawesome/free-solid-svg-icons";
 // import Partner from './components/homepage/Partner';
-import PrimaryButton from './components/buttons/PrimaryButton';
-// import SecondaryButton from './components/buttons/SecondaryButton';
+// import PrimaryButton from './components/buttons/PrimaryButton';
+import SecondaryButton from './components/buttons/SecondaryButton';
 import H2 from './components/headlines/H2';
 
 export default function Home() {
@@ -39,9 +39,12 @@ export default function Home() {
                     {/* <SecondaryButton href="/launchpad" title="Launchpad">
                         Launchpad <FontAwesomeIcon icon={faRocket} className='h-[24px]' />
                     </SecondaryButton> */}
-                    <PrimaryButton className="glow-on-hover-active" href="https://t.me/cryptosocietyy" title="Telegram" target="_blank">
+                    {/* <PrimaryButton className="glow-on-hover-active" href="https://t.me/cryptosocietyy" title="Telegram" target="_blank">
                         Telegram <FontAwesomeIcon icon={faTelegram} className='h-[24px]' />
-                    </PrimaryButton>
+                    </PrimaryButton> */}
+                    <SecondaryButton href="https://t.me/cryptosocietyy" title="Telegram" target="_blank">
+                        Telegram <FontAwesomeIcon icon={faTelegram} className='h-[24px]' />
+                    </SecondaryButton>
                 </div>
             </div>
 
