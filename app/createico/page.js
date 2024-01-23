@@ -1,4 +1,4 @@
-// "use client"
+"use client"
 
 // import { useEffect, useState } from 'react';
 // import H1 from '../components/headlines/H1';
@@ -6,7 +6,7 @@
 // import { useForm } from 'react-hook-form'; // Import useForm
 // import { useAccount } from 'wagmi';
 
-// export default function CreateIco() {
+export default function CreateIco() {
 //     const [ admin, setAdmin] = useState(false);
 //     const { address } = useAccount();
 
@@ -48,4 +48,4 @@
 //             }
 //         </main>
 //     )
-// }
+}
