@@ -15,7 +15,6 @@ export default function CreateIco() {
             if (address) {
                 const response = await fetch(`/api/admins/${address}`);
                 const data = await response.json();
-                console.log(data);
                 if (data.status === 'Valid') {
                     setAdmin(true);
                 } else {
