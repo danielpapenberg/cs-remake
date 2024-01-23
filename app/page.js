@@ -1,10 +1,10 @@
 import BlackWhole from './components/blackwhole';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTelegram } from "@fortawesome/free-brands-svg-icons";
-import { faRocket } from "@fortawesome/free-solid-svg-icons";
+// import { faRocket } from "@fortawesome/free-solid-svg-icons";
 // import Partner from './components/homepage/Partner';
 import PrimaryButton from './components/buttons/PrimaryButton';
-import SecondaryButton from './components/buttons/SecondaryButton';
+// import SecondaryButton from './components/buttons/SecondaryButton';
 import H2 from './components/headlines/H2';
 
 export default function Home() {
