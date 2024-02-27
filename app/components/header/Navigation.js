@@ -51,11 +51,17 @@ const Navigation = () => {
 
                 {
                     admin && !isDisconnected && 
-                        <li className='flex items-center'>
-                            <Link href="/createico" className={`${linkStyles}${pathname === '/createico' ? ' text-[#5da8ff]' : ''}`}>
-                                <span className={linkStylesSpan}>admin</span>
-                                Create ICO
+                        <li className='flex items-center relative dropdown'>
+                            <Link href="#" className={`${linkStyles} cursor-pointer`}>
+                                <span className={linkStylesSpan}>03</span>
+                                ICO
                             </Link>
+                            <div className="absolute top-0 left-0 hidden text-[#fff] flex-col dropdown-content translate-y-5 h-[300px] w-[150px] text-[14px]">
+                                <Link href="/createico" className={`${pathname === '/createico' ? ' text-[#5da8ff] px-3 hover:underline' : 'px-3 hover:underline'}`}>create ico</Link>
+                                <Link href="/link2" className="px-3 hover:underline">edit ico</Link>
+                                <Link href="/link3" className="px-3 hover:underline">create user</Link>
+                                <Link href="/link3" className="px-3 hover:underline">create group</Link>
+                            </div>
                         </li>
                 }
             

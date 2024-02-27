@@ -2,9 +2,9 @@ import { Open_Sans } from 'next/font/google'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faTelegram } from "@fortawesome/free-brands-svg-icons";
 import Image from 'next/image';
-// import Navigation from './components/header/Navigation';
+import Navigation from './components/header/Navigation';
 import Link from 'next/link';
-// import { Web3Modal } from "./contexts/Web3Modal";
+import { Web3Modal } from "./contexts/Web3Modal";
 
 const roboto_c = Open_Sans({
     subsets: ['latin'],
@@ -25,14 +25,19 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body className={roboto_c.className}>
-                {/* <Web3Modal> */}
+                <Web3Modal>
                     <h1 className='w-[300px] m-5 fixed'>
                         <Link href="/">
                             <Image src={'/images/logos/logo-crypto-society.png'} width={300} height={100} alt="Crypto Society"  />
                         </Link>
+                        
                     </h1>
-                    {/* <div className='hidr */}
+                    <div className='right-10 top-10 fixed'>
+                        <Navigation />
+                    </div>
+                   
                     {children}
+
                     <footer className='mt-40 pb-5 text-[#6a90ba70] uppercase'>
                         <div className='flex flex-col justify-center items-center gap-10'>
                             <div className='flex gap-5'>
@@ -41,11 +46,11 @@ export default function RootLayout({ children }) {
                             </div>
 
                             <div>
-                                Crypto Society © 2023
+                                Crypto Society © 2024
                             </div>
                         </div>
                     </footer>
-                {/* </Web3Modal> */}
+                </Web3Modal>
             </body>
         </html>
     )

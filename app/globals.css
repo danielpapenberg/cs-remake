@@ -27,10 +27,13 @@ h2 {
 	letter-spacing: -8px;
 }
 
-
 h2 span:nth-child(2) {
 	position: absolute;
 	transform: translate(-100%, -100%);
+}
+
+.dropdown:hover .dropdown-content {
+    display: flex;
 }
 
 .bubble {

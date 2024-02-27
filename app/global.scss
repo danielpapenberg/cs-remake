@@ -3,3 +3,7 @@
         color: #000;
     }
 }
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
