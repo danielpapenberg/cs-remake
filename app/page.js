@@ -14,7 +14,7 @@ export default function Home() {
                 <BlackWhole />
             </div>
 
-            <div className='absolute lg:right-[20%] top-[20%] md:top-[30%] xl:top-[40%] p-5 lg:p-0'>
+            <div className='absolute lg:right-[20%] top-[20%] md:top-[30%] 2xl:top-[40%] p-5 lg:p-0'>
                 <h2 className='text-[60px] lg:text-[120px] leading-none uppercase font-bold'>Empower</h2>
                 <h2 className='text-[60px] lg:text-[120px] leading-none text-[#6A90BA] uppercase font-bold overflow-hidden'>
                     Your&nbsp;
