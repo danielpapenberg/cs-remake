@@ -19,6 +19,7 @@
 body {
 	color: rgb(var(--foreground-rgb));
 	background-color: rgb(15, 15, 21);
+	color: #fff;
 }
 
 h2 {
