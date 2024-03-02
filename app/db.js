@@ -1,7 +1,8 @@
 const mysql = require('mysql2');
 const fs = require('fs');
 
-const caPath = 'ssl/ca-certificate.crt';
+const path = require('path');
+const caPath = path.join(__dirname, 'ssl', 'ca-certificate.crt');
 
 const pool = mysql.createPool({
     host: process.env.MYSQL_HOST,
