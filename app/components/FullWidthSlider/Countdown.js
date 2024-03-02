@@ -8,7 +8,7 @@ const CountdownTimer = ({ endDate }) => {
         // Function to calculate the time left until endDate
         const calculateTimeLeft = () => {
             const now = new Date().getTime();
-            const endTimestamp = new Date(endDate * 1000).getTime();
+            const endTimestamp = new Date(endDate).getTime();
             const difference = endTimestamp - now;
 
             if (difference > 0) {

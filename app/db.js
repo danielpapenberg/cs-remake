@@ -1,15 +1,20 @@
 const mysql = require('mysql2');
+const fs = require('fs');
 
-// Create a connection pool
+const caPath = 'ssl/ca-certificate.crt';
+
 const pool = mysql.createPool({
-    host: process.env.MYSQL_HOST,      // Your MySQL host
-    user: process.env.MYSQL_USER,      // Your MySQL username
-    password: process.env.MYSQL_PASSWORD,  // Your MySQL password
-    database: process.env.MYSQL_DATABASE,  // Your MySQL database name
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DATABASE,
+    port: process.env.MYSQL_PORT,
     waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0
+    connectionLimit: 50,
+    queueLimit: 0,
+    ssl: {
+        ca: fs.readFileSync(caPath)
+    }
 });
 
-// Export the pool promise for use in other files
 module.exports = pool.promise();

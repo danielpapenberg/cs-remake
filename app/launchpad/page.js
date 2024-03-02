@@ -5,28 +5,37 @@ import H1 from '../components/headlines/H1';
 import FullWidthSlider from '../components/FullWidthSlider/FullWidthSlider';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRocket } from "@fortawesome/free-solid-svg-icons";
+import { useCustomer } from '../contexts/CustomerContext';
 
 export default function Launchpad() {
     const [icos, setIcos] = useState([]);
-    const [isLoading, setIsLoading] = useState(true); // Loading state
+    const [isLoading, setIsLoading] = useState(true);
+    const [elligable, setElligable] = useState(false);
+    const customer = useCustomer();
 
     useEffect(() => {
-        fetch('/api/ico', {
-            method: 'GET'
-        })
-        .then(response => response.json())
-        .then(data => {
-            setIcos(data);
-            setIsLoading(false); // Data fetched, loading is done
-        });
-    }, []); // The empty array ensures this effect runs once after the component mounts
+        if (customer?.status === 'Valid') {
+            setElligable(true);
+
+            fetch('/api/icos?type=user&address=' + customer?.data.address, {
+                method: 'GET'
+            })
+            .then(response => response.json())
+            .then(data => {
+                setIcos(data);
+                setIsLoading(false);
+            });
+        } else if (customer?.status === 'Redirect'){
+            location.href = '/';
+        }
+    }, [customer?.status, customer?.data?.address]);
 
     return (
         <main className='landingpage py-40 px-5'>
             <H1 className='leading-1 font-normal'>Launchpad <span className='text-[20px] text-[#666] tracking-normal font-normal'>02</span></H1>
             <FontAwesomeIcon icon={faRocket} className='text-[#00000073] absolute right-[4%] top-[20%] md:top-[10%] text-[600px] md:text-[1800px] z-[-1] select-none' />
             {
-                isLoading ? 
+                isLoading || !elligable ? 
                     <div className="lds-ripple"><div></div><div></div></div>
                 :
                     <FullWidthSlider data={icos} />
