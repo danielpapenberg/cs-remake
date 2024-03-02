@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import H1 from '../../components/headlines/H1';
 import GroupForm from './../components/GroupForm';
 import { useForm } from 'react-hook-form';
-import { useCustomer } from '../contexts/CustomerContext';
+import { useCustomer } from '../../contexts/CustomerContext';
 
 export default function EditGroup({ params }) {
     const id = params.id;
