@@ -6,11 +6,45 @@ import { ethers } from 'ethers';
 import BSCUSDTABI from '../../abis/bsc_usdt.json';
 import BSCUSDCABI from '../../abis/bsc_usdc.json';
 
+function getFriendlyErrorMessage(error) {
+    const mappings = {
+        'User denied transaction signature': {
+            friendlyMessage: "Transaction Denied: Your transaction was not completed because it was rejected. Please verify the transaction details and try again, making sure to approve it in your wallet.",
+            actions: "Verify the transaction details, and try submitting again.",
+            help: "If you're unsure or need assistance, please reach out to our team in telegram."
+        },
+        'transfer amount exceeds balance': {
+            friendlyMessage: "Transfer Not Completed: You attempted to send more than your current balance. Please check your balance and try again with a lower amount.",
+            actions: "Please verify your current balance to ensure you have sufficient funds for both the transfer amount and the transaction fees (gas). Consider reducing the amount you're trying to send or adding more funds to your account.",
+            help: "If you're unsure about how to check your balance or adjust your transaction, our support team is here to help you step by step."
+        },
+        'Insufficient funds for gas': {
+            friendlyMessage: "Transaction Failed: You don't have enough funds to cover the transaction fees (gas).",
+            actions: "Please add funds to your account or adjust the gas settings.",
+            help: "If you need help adjusting your gas settings, please contact support."
+        },
+    };
+
+    for (let pattern in mappings) {
+        if (error.includes(pattern)) {
+            return mappings[pattern];
+        }
+    }
+
+    // Return a generic message if the error doesn't match any pattern
+    return {
+        friendlyMessage: "An unexpected error occurred. Please try again.",
+        actions: "Check your wallet and network connection.",
+        help: "For persistent issues, please contact our support team."
+    };
+}
+
 const PayDirect = ({ ico, user }) => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const amount = watch("amount");
     const receiving_address = watch("receiving_address");
     const [submitError, setSubmitError] = useState('');
+    const [submitAction, setSubmitAction] = useState('');
     const [abiContract, setAbiContract] = useState('');
     const [contract, setContract] = useState('');
 
@@ -57,7 +91,9 @@ const PayDirect = ({ ico, user }) => {
     // UseEffect to handle changes in isError state from useContractWrite
     useEffect(() => {
         if (isError && error) {
-            setSubmitError(error.message);
+            const errorMessage = getFriendlyErrorMessage(error.message);
+            setSubmitError(errorMessage.friendlyMessage);
+            setSubmitAction(errorMessage.actions);
         }
     }, [isError, error]);
 
@@ -105,9 +141,6 @@ const PayDirect = ({ ico, user }) => {
                 {errors.amount && <div className='formGroupError'>{errors.amount.message}</div>}
             </div>
 
-            {/* Error Message */}
-            {submitError && <div className='error'>{submitError}</div>}
-
             {/* Receiving Address Field */}
             <div className='formGroup'>
                 <div className='formGroupElements'>
@@ -115,6 +148,7 @@ const PayDirect = ({ ico, user }) => {
                     <input
                         id="receiving_address"
                         type="text"
+                        className='inputStyles'
                         {...register('receiving_address', {
                             required: 'Receiving Address is required',
                             pattern: {
@@ -122,11 +156,23 @@ const PayDirect = ({ ico, user }) => {
                                 message: 'Invalid Address format'
                             }
                         })}
-                        className='inputStyles'
                     />
                 </div>
                 {errors.receiving_address && <div className='formGroupError'>{errors.receiving_address.message}</div>}
             </div>
+
+            {/* Error Message for web3*/}
+            {
+                submitError && 
+                    <div className='formGroup'>
+                        <div className='error text-yellow-500 italic mb-4'>
+                            {submitError}
+                        </div>
+                        <div className='text-green-500 font-bold'>
+                            {submitAction}
+                        </div>
+                    </div>
+            }
 
             {/* Submit Button */}
             <div className='formGroup'>

@@ -159,7 +159,12 @@ const IcoForm = ({ useForm, ico }) => {
                     <input
                         id="image"
                         type="text"
-                        {...register('image')}
+                        {...register('image', {
+                            pattern: {
+                                value: /^(https?:\/\/.*\.(?:png|jpg|webp|jpeg|gif|svg))$/i,
+                                message: 'Invalid image URL'
+                            }
+                        })}
                     />
                 </div>
                 {errors.image && <div className='formGroupError'>{errors.image.message}</div>}
@@ -171,10 +176,49 @@ const IcoForm = ({ useForm, ico }) => {
                     <input
                         id="website"
                         type="text"
-                        {...register('website')}
+                        {...register('website', {
+                            pattern: {
+                                value: /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/,
+                                message: 'Invalid website URL'
+                            }
+                        })}
                     />
                 </div>
                 {errors.website && <div className='formGroupError'>{errors.website.message}</div>}
+            </div>
+
+            <div className='formGroup'>
+                <div className='formGroupElements'>
+                    <label htmlFor="telegram">Telegram</label>
+                    <input
+                        id="telegram"
+                        type="text"
+                        {...register('telegram', {
+                            pattern: {
+                                value: /^@[a-zA-Z0-9_]{5,32}$/,
+                                message: 'Invalid Telegram username'
+                            }
+                        })}
+                    />
+                </div>
+                {errors.telegram && <div className='formGroupError'>{errors.telegram.message}</div>}
+            </div>
+
+            <div className='formGroup'>
+                <div className='formGroupElements'>
+                    <label htmlFor="twitter">Twitter</label>
+                    <input
+                        id="twitter"
+                        type="text"
+                        {...register('twitter', {
+                            pattern: {
+                                value: /^@[a-zA-Z0-9_]{4,15}$/,
+                                message: 'Invalid Twitter username'
+                            }
+                        })}
+                    />
+                </div>
+                {errors.twitter && <div className='formGroupError'>{errors.twitter.message}</div>}
             </div>
 
             <div className='formGroup'>
@@ -207,7 +251,13 @@ const IcoForm = ({ useForm, ico }) => {
                     <input
                         id="wallet"
                         type="text"
-                        {...register('wallet', { required: 'Wallet is required' })}
+                        {...register('wallet', {
+                            required: 'Wallet is required',
+                            pattern: {
+                                value: /^0x[a-fA-F0-9]{40}$/,
+                                message: 'Invalid Address format'
+                            }
+                        })}
                     />
                 </div>
                 {errors.wallet && <div className='formGroupError'>{errors.wallet.message}</div>}
