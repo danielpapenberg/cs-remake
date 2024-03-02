@@ -1,6 +1,5 @@
 const mysql = require('mysql2');
-const fs = require('fs');
-const caPath = process.env.CA_CERT_PATH;
+const caCertificate = Buffer.from(process.env.CA_CERT_BASE64, 'base64').toString('utf-8');
 
 const pool = mysql.createPool({
     host: process.env.MYSQL_HOST,
@@ -12,7 +11,7 @@ const pool = mysql.createPool({
     connectionLimit: 50,
     queueLimit: 0,
     ssl: {
-        ca: fs.readFileSync(caPath)
+        ca: caCertificate
     }
 });
 
