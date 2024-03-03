@@ -45,12 +45,21 @@ const Navigation = () => {
 
                 {
                     hasMounted && elligable && !isConnecting && !isDisconnected && 
-                        <li className='flex items-center'>
-                            <Link href="/launchpad" className={`${linkStyles}${pathname === '/launchpad' ? ' text-[#5da8ff]' : ''}`}>
-                                <span className={linkStylesSpan}>02</span>
-                                Launchpad
-                            </Link>
-                        </li>
+                        <>                        
+                            <li className='flex items-center'>
+                                <Link href="/launchpad" className={`${linkStyles}${pathname === '/launchpad' ? ' text-[#5da8ff]' : ''}`}>
+                                    <span className={linkStylesSpan}>02</span>
+                                    Launchpad
+                                </Link>
+                            </li>
+
+                            <li className='flex items-center'>
+                                <Link href="/myicos" className={`${linkStyles}${pathname === '/myicos' ? ' text-[#5da8ff]' : ''}`}>
+                                    <span className={linkStylesSpan}>03</span>
+                                    My ICOS
+                                </Link>
+                            </li>
+                        </>
                 }
 
                 {

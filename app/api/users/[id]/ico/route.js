@@ -60,28 +60,12 @@ export async function POST(request, {params}) {
             });
         }
 
-        const [existingRows] = await db.execute(
-            'SELECT * FROM user_ico_participations WHERE user_id = ? AND ico_id = ?',
-            [user_id, ico_id]
+        await db.execute(
+            `INSERT INTO user_ico_participations 
+            (user_id, ico_id, ico_name, amount, txhash, from_address, to_address, receiving_address, participation_date) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            [user_id, ico_id, ico_name, amountFloat, txhash, from_address, to_address, receiving_address, participation_date]
         );
-
-        if (existingRows.length > 0) {
-            // Update existing record
-            await db.execute(
-                `UPDATE user_ico_participations 
-                SET ico_name = ?, amount = ?, txhash = ?, from_address = ?, to_address = ?, receiving_address = ?, participation_date = ?
-                WHERE user_id = ? AND ico_id = ?`,
-                [ico_name, amountFloat, txhash, from_address, to_address, receiving_address, participation_date, user_id, ico_id]
-            );
-        } else {
-            // Insert new record
-            await db.execute(
-                `INSERT INTO user_ico_participations 
-                (user_id, ico_id, ico_name, amount, txhash, from_address, to_address, receiving_address, participation_date) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-                [user_id, ico_id, ico_name, amountFloat, txhash, from_address, to_address, receiving_address, participation_date]
-            );
-        }
 
         return new Response(JSON.stringify({ message: 'Form submitted successfully' }), {
             status: 200,

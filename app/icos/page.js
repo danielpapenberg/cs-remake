@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faTrash, faEye } from '@fortawesome/free-solid-svg-icons';
 import { useCustomer } from '../contexts/CustomerContext';
 
-export default function Groups() {
+export default function ICOs() {
     const [ admin, setAdmin] = useState(false);
     const [ icos, setIcos ] = useState([]);
     const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false);
