@@ -84,6 +84,9 @@ export async function PUT(request, { params }) {
         const formData = await request.formData();
         const name = formData.get('name');
         const website = formData.get('website');
+        const telegram = formData.get('telegram');
+        const twitter = formData.get('twitter');
+        const tokenomics = formData.get('tokenomics');
         const image = formData.get('image');
         const wallet = formData.get('wallet');
         const wallet_chain = formData.get('wallet_chain');
@@ -108,6 +111,9 @@ export async function PUT(request, { params }) {
             SET 
                 name = ?, 
                 website = ?, 
+                telegram = ?,
+                twitter = ?,
+                tokenomics = ?,
                 image = ?, 
                 wallet = ?, 
                 wallet_chain = ?, 
@@ -122,6 +128,9 @@ export async function PUT(request, { params }) {
         await db.execute(updateQuery, [
             name, 
             website, 
+            telegram,
+            twitter,
+            tokenomics,
             image, 
             wallet,
             wallet_chain,
@@ -139,8 +148,8 @@ export async function PUT(request, { params }) {
         // Handle group_ids and their corresponding alloc fields
         await Promise.all(group_ids.map(async (group_id) => {
             // Retrieve allocation fields for each group
-            const minAlloc = formData.get(`minAlloc-${group_id}`) || '100';
-            const maxAlloc = formData.get(`maxAlloc-${group_id}`) || '5000';
+            const minAlloc = formData.get(`minAlloc-${group_id}`) || 0;
+            const maxAlloc = formData.get(`maxAlloc-${group_id}`) || 0;
 
             // Insert group_id along with minAlloc and maxAlloc into the ico_groups table
             await db.execute(

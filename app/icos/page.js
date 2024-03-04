@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import H1 from '../components/headlines/H1';
-import Modal from '../components/modals/ConfirmDeleteModal';
+import { Modal } from '../components/modals/modal';
 import Link from 'next/link';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPencil, faTrash, faEye } from '@fortawesome/free-solid-svg-icons';
+import { faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useCustomer } from '../contexts/CustomerContext';
 
 export default function ICOs() {
@@ -14,6 +14,7 @@ export default function ICOs() {
     const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false);
     const [isModalStatusOpen, setIsModalStatusOpen] = useState(false);
     const [selectedIcoId, setSelectedIcoId] = useState(null);
+    const [searchTerm, setSearchTerm] = useState('');
     const [toggleStatusDetails, setToggleStatusDetails] = useState({ id: null, isActive: false });
     const customer = useCustomer();
 
@@ -84,6 +85,12 @@ export default function ICOs() {
         setIsModalStatusOpen(true); // Assuming you're reusing the delete modal for simplicity
     };
 
+    const filteredIcos = icos.filter(ico => {
+        return Object.values(ico).some(value =>
+            String(value).toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    });
+
     const buttonClasses = `border border-slate-300 w-8 h-8 rounded-full flex justify-center items-center hover:bg-gray-100`;
     const headClasses = `py-3 px-6`;
     const rowClasses = `py-2 px-6 text-[12px]`;
@@ -93,6 +100,16 @@ export default function ICOs() {
             { admin ? 
                 <>
                     <H1 className='leading-1 font-normal'>Icos <span className='text-[20px] text-[#666] tracking-normal font-normal'>admin</span></H1>
+
+                    <div className="search-container">
+                        <input
+                            type="text"
+                            placeholder="Search..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            className="search-input rounded mb-5 p-2 text-black text-[14px] w-[264px]"
+                        />
+                    </div>
 
                     <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
                         <table className="w-full text-sm text-left text-gray-500 table-striped">
@@ -112,7 +129,7 @@ export default function ICOs() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {icos.map((ico) => (
+                                {filteredIcos.map((ico) => (
                                     <tr className="bg-white border-b" key={ico.ico_id}>
                                         <td className={rowClasses}>
                                             <div className='flex gap-2 items-center'>
@@ -122,10 +139,6 @@ export default function ICOs() {
 
                                                 <Link href={`/icos/${ico.ico_id}`} className={`${buttonClasses}`}>
                                                     <FontAwesomeIcon icon={faPencil} className='h-[14px]' />
-                                                </Link>
-
-                                                <Link href={`/icos/preview/${ico.ico_id}`} className={`${buttonClasses}`}>
-                                                    <FontAwesomeIcon icon={faEye} className='h-[14px]' />
                                                 </Link>
 
                                                 <button onClick={() => openModalDeleteWithIco(ico.ico_id)} className={`${buttonClasses}`}>

@@ -50,7 +50,7 @@ export async function POST(request, {params}) {
 
         const amountFloat = parseFloat(amount);
         const minAllocationFloat = parseFloat(ico[0].min_allocation);
-        const maxAllocationFloat = parseFloat(ico[0].max_allocation);
+        const maxAllocationFloat = parseFloat(ico[0].max_allocation < 1 ? 10000000 : ico[0].max_allocation);
 
          // Check if the amount is within the min and max allocation
          if (amountFloat < minAllocationFloat || amountFloat > maxAllocationFloat) {

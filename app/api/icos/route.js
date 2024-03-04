@@ -8,7 +8,7 @@ export async function GET(request) {
 
     switch (type) {
         case 'active':
-            sqlQuery = 'SELECT * FROM icos WHERE is_deleted <> 1 AND is_active = 1';
+            sqlQuery = 'SELECT * FROM icos WHERE is_deleted <> 1 AND is_active = 1 order by icos.ico_id desc';
             break;
         case 'user':
             sqlQuery = `
@@ -25,11 +25,13 @@ export async function GET(request) {
                     users.is_deleted <> 1 AND
                     users.is_blocked <> 1 AND
                     users.address = ?
+                order by
+                    icos.ico_id desc
             `;
             queryParams.push(address);
             break;
         default:
-            sqlQuery = 'SELECT * FROM icos WHERE is_deleted <> 1';
+            sqlQuery = 'SELECT * FROM icos WHERE is_deleted <> 1 order by icos.ico_id desc';
     }
 
     try {
@@ -58,6 +60,9 @@ export async function POST(request) {
         const formData = await request.formData();
         const name = formData.get('name');
         const website = formData.get('website');
+        const telegram = formData.get('telegram');
+        const twitter = formData.get('twitter');
+        const tokenomics = formData.get('tokenomics');
         const image = formData.get('image');
         const wallet = formData.get('wallet');
         const wallet_chain = formData.get('wallet_chain');
@@ -78,15 +83,15 @@ export async function POST(request) {
         }
 
         const [icoResult] = await connection.execute(
-            'INSERT INTO icos (name, website, image, startdate, enddate, wallet, wallet_chain, wallet_currency, short_description, description, is_active) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-            [name, website, image, startdate, enddate, wallet, wallet_chain, wallet_currency, short_description, description, false]
+            'INSERT INTO icos (name, website, telegram, twitter, tokenomics, image, startdate, enddate, wallet, wallet_chain, wallet_currency, short_description, description, is_active) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            [name, website, telegram, twitter, tokenomics, image, startdate, enddate, wallet, wallet_chain, wallet_currency, short_description, description, false]
         );
 
         const ico_id = icoResult.insertId;
 
         await Promise.all(group_ids.map(group_id => {
-            const minAlloc = formData.get(`minAlloc-${group_id}`) || '100';
-            const maxAlloc = formData.get(`maxAlloc-${group_id}`) || '5000';
+            const minAlloc = formData.get(`minAlloc-${group_id}`) || 0;
+            const maxAlloc = formData.get(`maxAlloc-${group_id}`) || 0;
             return connection.execute(
                 'INSERT INTO ico_groups (ico_id, group_id, min_allocation, max_allocation) VALUES (?, ?, ?, ?)',
                 [ico_id, group_id, minAlloc, maxAlloc]

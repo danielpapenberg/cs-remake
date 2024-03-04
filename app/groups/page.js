@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import H1 from '../components/headlines/H1';
-import Modal from '../components/modals/ConfirmDeleteModal';
+import { Modal } from '../components/modals/modal';
 import Link from 'next/link';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';

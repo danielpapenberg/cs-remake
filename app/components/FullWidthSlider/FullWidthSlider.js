@@ -17,7 +17,7 @@ export default function FullWidthSlider(props) {
 
                         {
                             slide.image &&
-                                <img src={`${slide.image}`} alt={slide.name} className='absolute right-[25px] top-[-25px] rounded-[100px]'/>
+                                <img src={`${slide.image}`} alt={slide.name} className='absolute right-[25px] top-[-25px] rounded-[100px] h-[70px] max-w-[150px]'/>
                         }   
 
                         {
@@ -30,7 +30,7 @@ export default function FullWidthSlider(props) {
                                                 Tx Hash: <span className='text-blue-500 underline'>{`${slide.txhash.slice(0, 5)}...${slide.txhash.slice(-5)}`}</span>
                                             </Link>
                                         </p>
-                                        <p>Amount: {slide.amount}</p>
+                                        <p>Amount: {slide.amount} $</p>
                                         <p>
                                             Date: {new Date(slide.participation_date).toLocaleDateString('en-US', {
                                                 year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
@@ -38,7 +38,7 @@ export default function FullWidthSlider(props) {
                                         </p>    
                                         <div className='flex justify-end mt-auto'>
                                             <SecondaryButton href={`/launchpad/${slide.ico_id}`} title="Details">
-                                                edit
+                                                view
                                             </SecondaryButton>
                                         </div>
                                     </div>
@@ -50,7 +50,7 @@ export default function FullWidthSlider(props) {
                                     <p>{slide.short_description}</p>
                                     <div className='flex justify-end mt-auto'>
                                         <SecondaryButton href={`/launchpad/${slide.ico_id}`} title="Details">
-                                            more...
+                                            details
                                         </SecondaryButton>
                                     </div>
                                 </>

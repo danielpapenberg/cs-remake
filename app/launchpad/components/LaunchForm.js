@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
+import { Modal } from '../../components/modals/modal';
 import FormButton from '../../components/buttons/FormButton';
 import PayDirect from './PayDirect';
 
@@ -9,6 +10,8 @@ const UserIcoForm = ({ useForm, ico, user }) => {
         formState: { errors },
         setValue 
     } = useForm();
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const onSubmit = async (data, event) => {
         event.preventDefault();
@@ -31,7 +34,7 @@ const UserIcoForm = ({ useForm, ico, user }) => {
                     console.error("Error from API:", data.error);
                 }
             } else {
-                alert('Saved transaction')
+                setIsModalOpen(true);
             }
         } catch (error) {
             console.error('Error submitting form:', error);
@@ -77,7 +80,7 @@ const UserIcoForm = ({ useForm, ico, user }) => {
                                     message: 'Amount must be at least ' + ico.min_allocation,
                                 },
                                 max: {
-                                    value: ico.max_allocation,
+                                    value: ico.max_allocation < 1 ? 10000000 : ico.max_allocation,
                                     message: 'Amount must not exceed ' + ico.max_allocation,
                                 }
                             })}
@@ -114,6 +117,17 @@ const UserIcoForm = ({ useForm, ico, user }) => {
                 </div>
 
             </form>
+
+            <Modal 
+                isOpen={isModalOpen} 
+                onClose={() => setIsModalOpen(false)} 
+                onConfirm={() => {
+                    location.href = '/myicos';
+                }}
+                headline='Transaction saved'
+                subheadline={`You will be navigated to your ICO section.`}
+                button1='Continue'
+            />
 
             <PayDirect ico={ico} user={user} />
         </>

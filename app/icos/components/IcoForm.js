@@ -92,6 +92,9 @@ const IcoForm = ({ useForm, ico }) => {
         formData.append('image', data.image);
         formData.append('name', data.name);
         formData.append('website', data.website);
+        formData.append('telegram', data.telegram);
+        formData.append('twitter', data.twitter);
+        formData.append('tokenomics', data.tokenomics);
         formData.append('startdate', data.startdate);
         formData.append('enddate', data.enddate);
         formData.append('wallet', data.wallet);
@@ -177,9 +180,17 @@ const IcoForm = ({ useForm, ico }) => {
                         id="website"
                         type="text"
                         {...register('website', {
-                            pattern: {
-                                value: /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/,
-                                message: 'Invalid website URL'
+                            // pattern: {
+                            //     value: /^(https?:\/\/)?([\w.-]+)\.([a-z]{2,})([\/\w .-]*)*\/?(\?[\w=&.%-]*)?(\#[\w-]*)?$/,
+                            //     message: 'Invalid Website URL'
+                            // },
+                            minLength: {
+                                value: 5,
+                                message: 'Website URL must be at least 5 characters long'
+                            },
+                            maxLength: {
+                                value: 255,
+                                message: 'Website URL must be no more than 255 characters long'
                             }
                         })}
                     />
@@ -194,9 +205,17 @@ const IcoForm = ({ useForm, ico }) => {
                         id="telegram"
                         type="text"
                         {...register('telegram', {
-                            pattern: {
-                                value: /^@[a-zA-Z0-9_]{5,32}$/,
-                                message: 'Invalid Telegram username'
+                            // pattern: {
+                            //     value: /^(https?:\/\/)?([\w.-]+)\.([a-z]{2,})([\/\w .-]*)*\/?(\?[\w=&.%-]*)?(\#[\w-]*)?$/,
+                            //     message: 'Invalid Telegram URL'
+                            // },
+                            minLength: {
+                                value: 5,
+                                message: 'Telegram URL must be at least 5 characters long'
+                            },
+                            maxLength: {
+                                value: 255,
+                                message: 'Telegram URL must be no more than 255 characters long'
                             }
                         })}
                     />
@@ -211,14 +230,47 @@ const IcoForm = ({ useForm, ico }) => {
                         id="twitter"
                         type="text"
                         {...register('twitter', {
-                            pattern: {
-                                value: /^@[a-zA-Z0-9_]{4,15}$/,
-                                message: 'Invalid Twitter username'
+                            // pattern: {
+                            //     value: /^(https?:\/\/)?([\w.-]+)\.([a-z]{2,})([\/\w .-]*)*\/?(\?[\w=&.%-]*)?(\#[\w-]*)?$/,
+                            //     message: 'Invalid Twitter URL'
+                            // },
+                            minLength: {
+                                value: 5,
+                                message: 'Twitter URL must be at least 5 characters long'
+                            },
+                            maxLength: {
+                                value: 255,
+                                message: 'Twitter URL must be no more than 255 characters long'
                             }
                         })}
                     />
                 </div>
                 {errors.twitter && <div className='formGroupError'>{errors.twitter.message}</div>}
+            </div>
+
+            <div className='formGroup'>
+                <div className='formGroupElements'>
+                    <label htmlFor="tokenomics">Tokenomics</label>
+                    <input
+                        id="tokenomics"
+                        type="text"
+                        {...register('tokenomics', {
+                            // pattern: {
+                            //     value: /^(https?:\/\/)?([\w.-]+)\.([a-z]{2,})([\/\w .-]*)*\/?(\?[\w=&.%-]*)?(#\w*)?$/,
+                            //     message: 'Invalid Tokenomics URL'
+                            // },
+                            minLength: {
+                                value: 5,
+                                message: 'Tokenomics URL must be at least 5 characters long'
+                            },
+                            maxLength: {
+                                value: 255,
+                                message: 'Tokenomics URL must be no more than 255 characters long'
+                            }
+                        })}
+                    />
+                </div>
+                {errors.tokenomics && <div className='formGroupError'>{errors.tokenomics.message}</div>}
             </div>
 
             <div className='formGroup'>
@@ -272,8 +324,8 @@ const IcoForm = ({ useForm, ico }) => {
                         className='inputStyles' // Ensure your CSS applies to <select> as well
                     >
                         <option value="">Select Chain</option> {/* Default option prompting user selection */}
-                        <option value="ethereum">Ethereum</option>
-                        <option value="binance_chain">Binance Chain</option>
+                        <option value="eth">Ethereum</option>
+                        <option value="bsc">Binance Chain</option>
                     </select>
                 </div>
                 {errors.wallet_chain && <div className='formGroupError'>{errors.wallet_chain.message}</div>}
