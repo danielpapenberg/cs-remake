@@ -18,9 +18,9 @@ const TinyMCEEditor = ({ onEditorChange, initialContent }) => {
 
     return (
         <>            
-            <script src="https://cdn.tiny.cloud/1/lxk0ecg40msycb0geyz13nsgx3c5n9ri2nclj2jpj5is23a3/tinymce/6/tinymce.min.js" referrerPolicy="origin"></script>
+            <script src="https://cdn.tiny.cloud/1/la36zhl0173w857etif7rxjy2r6exn7q0cda1urwq50i85aw/tinymce/6/tinymce.min.js" referrerPolicy="origin"></script>
             <Editor
-                apiKey='lxk0ecg40msycb0geyz13nsgx3c5n9ri2nclj2jpj5is23a3'
+                apiKey='la36zhl0173w857etif7rxjy2r6exn7q0cda1urwq50i85aw'
                 onInit={(evt, editor) => editorRef.current = editor}
                 initialValue={initialContent || "<p>This is the initial content of the editor.</p>"}
                 init={{
