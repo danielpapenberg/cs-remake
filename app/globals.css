@@ -17,8 +17,8 @@
 }
 
 body {
-	color: rgb(var(--foreground-rgb));
-	background-color: #0f0f15;
+	background-color: rgb(15, 15, 21);
+	color: #fff;
 }
 
 h2 {
