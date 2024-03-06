@@ -163,9 +163,17 @@ const IcoForm = ({ useForm, ico }) => {
                         id="image"
                         type="text"
                         {...register('image', {
-                            pattern: {
-                                value: /^(https?:\/\/.*\.(?:png|jpg|webp|jpeg|gif|svg))$/i,
-                                message: 'Invalid image URL'
+                            // pattern: {
+                            //     value: /^(https?:\/\/.*\.(?:png|jpg|webp|jpeg|gif|svg))$/i,
+                            //     message: 'Invalid image URL'
+                            // },
+                            minLength: {
+                                value: 5,
+                                message: 'Website URL must be at least 5 characters long'
+                            },
+                            maxLength: {
+                                value: 255,
+                                message: 'Website URL must be no more than 255 characters long'
                             }
                         })}
                     />
