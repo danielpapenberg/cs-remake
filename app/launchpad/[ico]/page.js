@@ -34,8 +34,6 @@ export default function Ico({ params }) {
                 // Check if endDate is before today's date
                 const now = new Date(); // Current date and time
                 const icoEndDate = new Date(data.enddate);
-                console.log(data.enddate);
-                console.log(icoEndDate);
 
                 if (icoEndDate > now) {
                     console.log('ICO has ended.'); // Perform your logic here when ICO has ended
