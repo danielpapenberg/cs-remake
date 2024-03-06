@@ -95,6 +95,7 @@ const IcoForm = ({ useForm, ico }) => {
         formData.append('telegram', data.telegram);
         formData.append('twitter', data.twitter);
         formData.append('tokenomics', data.tokenomics);
+        formData.append('pitchdeck', data.pitchdeck);
         formData.append('startdate', data.startdate);
         formData.append('enddate', data.enddate);
         formData.append('wallet', data.wallet);
@@ -279,6 +280,31 @@ const IcoForm = ({ useForm, ico }) => {
                     />
                 </div>
                 {errors.tokenomics && <div className='formGroupError'>{errors.tokenomics.message}</div>}
+            </div>
+
+            <div className='formGroup'>
+                <div className='formGroupElements'>
+                    <label htmlFor="pitchdeck">Pitchdeck</label>
+                    <input
+                        id="pitchdeck"
+                        type="text"
+                        {...register('pitchdeck', {
+                            // pattern: {
+                            //     value: /^(https?:\/\/)?([\w.-]+)\.([a-z]{2,})([\/\w .-]*)*\/?(\?[\w=&.%-]*)?(#\w*)?$/,
+                            //     message: 'Invalid Tokenomics URL'
+                            // },
+                            minLength: {
+                                value: 5,
+                                message: 'Pitchdeck URL must be at least 5 characters long'
+                            },
+                            maxLength: {
+                                value: 255,
+                                message: 'Pitchdeck URL must be no more than 255 characters long'
+                            }
+                        })}
+                    />
+                </div>
+                {errors.pitchdeck && <div className='formGroupError'>{errors.pitchdeck.message}</div>}
             </div>
 
             <div className='formGroup'>

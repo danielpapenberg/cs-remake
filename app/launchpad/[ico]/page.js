@@ -9,7 +9,7 @@ import { useForm } from 'react-hook-form';
 import LaunchForm from './../components/LaunchForm';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChartSimple, faLink } from '@fortawesome/free-solid-svg-icons';
-import { faTwitter, faTelegram } from "@fortawesome/free-brands-svg-icons";
+import { faTwitter, faTelegram, faStackOverflow } from "@fortawesome/free-brands-svg-icons";
 import CountdownTimer from '../../components/FullWidthSlider/Countdown';
 
 export default function Ico({ params }) {
@@ -102,6 +102,15 @@ export default function Ico({ params }) {
                                             <div className='flex gap-5'>
                                                 <Link href={ico.tokenomics} target='_blank' className='hover:text-[#6a90ba]' title="Tokenomics">
                                                     <FontAwesomeIcon icon={faChartSimple} className='h-[40px]' />
+                                                </Link>
+                                            </div>
+                                    } 
+
+                                    {
+                                        ico.pitchdeck && 
+                                            <div className='flex gap-5'>
+                                                <Link href={ico.pitchdeck} target='_blank' className='hover:text-[#6a90ba]' title="Pitchdeck">
+                                                    <FontAwesomeIcon icon={faStackOverflow} className='h-[40px]' />
                                                 </Link>
                                             </div>
                                     } 

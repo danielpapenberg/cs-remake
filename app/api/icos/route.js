@@ -63,6 +63,7 @@ export async function POST(request) {
         const telegram = formData.get('telegram');
         const twitter = formData.get('twitter');
         const tokenomics = formData.get('tokenomics');
+        const pitchdeck = formData.get('pitchdeck');
         const image = formData.get('image');
         const wallet = formData.get('wallet');
         const wallet_chain = formData.get('wallet_chain');
@@ -83,8 +84,8 @@ export async function POST(request) {
         }
 
         const [icoResult] = await connection.execute(
-            'INSERT INTO icos (name, website, telegram, twitter, tokenomics, image, startdate, enddate, wallet, wallet_chain, wallet_currency, short_description, description, is_active) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-            [name, website, telegram, twitter, tokenomics, image, startdate, enddate, wallet, wallet_chain, wallet_currency, short_description, description, false]
+            'INSERT INTO icos (name, website, telegram, twitter, tokenomics, pitchdeck, image, startdate, enddate, wallet, wallet_chain, wallet_currency, short_description, description, is_active) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            [name, website, telegram, twitter, tokenomics, pitchdeck, image, startdate, enddate, wallet, wallet_chain, wallet_currency, short_description, description, false]
         );
 
         const ico_id = icoResult.insertId;
