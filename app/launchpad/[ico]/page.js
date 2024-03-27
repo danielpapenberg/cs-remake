@@ -19,6 +19,28 @@ export default function Ico({ params }) {
     const [available, setAvailable] = useState(false); // Loading state
     const customer = useCustomer();
 
+    const date = ico.tge ? new Date(ico.tge) : null;
+
+    let formattedDate = '';
+
+    if (date) {
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+
+        // Check if the time is 00:00, then format without time.
+        if (hours === 0 && minutes === 0) {
+            formattedDate = format(date, 'MMMM dd, yyyy');
+        }
+        // If the time is 11:11, format to show only month and year.
+        else if (hours === 11 && minutes === 11) {
+            formattedDate = format(date, 'MMMM yyyy');
+        }
+        // Otherwise, format with the full date and time.
+        else {
+            formattedDate = format(date, 'MMMM dd, yyyy, hh:mm a');
+        }
+    }
+
     useEffect(() => {
         if (customer?.status === 'Valid') {
             fetch('/api/icos/' + params.ico + '?type=user&address=' + customer?.data.address, {
@@ -118,8 +140,7 @@ export default function Ico({ params }) {
                                 {
                                     ico.tge && 
                                         <div className="flex gap-5">
-                                            <strong>TGE: </strong> 
-                                            {format(new Date(ico.tge), 'MMMM dd, yyyy, hh:mm a')}
+                                            <strong>TGE: </strong> {formattedDate}
                                         </div>
                                 }
 
