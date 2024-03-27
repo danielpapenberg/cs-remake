@@ -70,6 +70,7 @@ const Navigation = () => {
                                 ICO
                             </Link>
                             <div className="absolute top-0 left-[-18px] pt-4 hidden text-[#fff] flex-col dropdown-content translate-y-5 h-[300px] w-[150px] text-[14px]">
+                                <Link href="/transactions" className={`${pathname === '/transactions' ? ' text-[#5da8ff] px-3 hover:underline mb-4' : 'px-3 hover:underline mb-4'}`}>transactions</Link>
                                 <Link href="/icos" className={`${pathname === '/icos' ? ' text-[#5da8ff] px-3 hover:underline' : 'px-3 hover:underline'}`}>icos</Link>
                                 <Link href="/icos/create" className={`${pathname === '/icos/create' ? ' text-[#5da8ff] px-3 hover:underline mb-4' : 'px-3 hover:underline mb-4'}`}>create ico</Link>
                                 <Link href="/users" className={`${pathname === '/users' ? ' text-[#5da8ff] px-3 hover:underline' : 'px-3 hover:underline'}`}>users</Link>

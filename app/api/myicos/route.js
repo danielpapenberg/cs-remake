@@ -19,7 +19,8 @@ export async function GET(request) {
             groups.is_deleted <> 1 AND
             users.is_deleted <> 1 AND
             users.is_blocked <> 1 AND
-            users.address = ?
+            users.address = ? AND
+            user_ico_participations.is_deleted <> 1
     `;
 
     try {

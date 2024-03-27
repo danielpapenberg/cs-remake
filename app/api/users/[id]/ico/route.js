@@ -62,9 +62,9 @@ export async function POST(request, {params}) {
 
         await db.execute(
             `INSERT INTO user_ico_participations 
-            (user_id, ico_id, ico_name, amount, txhash, from_address, to_address, receiving_address, participation_date) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-            [user_id, ico_id, ico_name, amountFloat, txhash, from_address, to_address, receiving_address, participation_date]
+            (user_id, ico_id, ico_name, amount, txhash, from_address, to_address, receiving_address, participation_date, is_deleted) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            [user_id, ico_id, ico_name, amountFloat, txhash, from_address, to_address, receiving_address, participation_date, 0]
         );
 
         return new Response(JSON.stringify({ message: 'Form submitted successfully' }), {

@@ -52,7 +52,7 @@ const IcoForm = ({ useForm, ico }) => {
 
         if (ico) {
             Object.keys(ico).forEach(key => {
-                if (key === 'startdate' || key === 'enddate') {
+                if (key === 'startdate' || key === 'enddate' || key === 'tge') {
                     const formattedDate = ico[key].replace(' ', 'T').substring(0, ico[key].lastIndexOf(':'));
                     setValue(key, formattedDate);
                 } else if (key === 'description') {
@@ -101,6 +101,9 @@ const IcoForm = ({ useForm, ico }) => {
         formData.append('wallet', data.wallet);
         formData.append('wallet_chain', data.wallet_chain);
         formData.append('wallet_currency', data.wallet_currency);
+        formData.append('distribution_chain', data.distribution_chain);
+        formData.append('tge', data.tge);
+        formData.append('vesting', data.vesting);
         formData.append('short_description', data.short_description);
         formData.append('desc', desc);
 
@@ -333,6 +336,30 @@ const IcoForm = ({ useForm, ico }) => {
 
             <div className='formGroup'>
                 <div className='formGroupElements'>
+                    <label htmlFor="tge">TGE</label>
+                    <input
+                        id="tge"
+                        type="datetime-local"
+                        {...register('tge')}
+                    />
+                </div>
+                {errors.tge && <div className='formGroupError'>{errors.tge.message}</div>}
+            </div>
+
+            <div className='formGroup'>
+                <div className='formGroupElements'>
+                    <label htmlFor="vesting">Vesting</label>
+                    <input
+                        id="vesting"
+                        type="text"
+                        {...register('vesting', {  minLength: { value: 2, message: 'Vesting must be at least 2 characters long' } })}
+                    />
+                </div>
+                {errors.vesting && <div className='formGroupError'>{errors.vesting.message}</div>}
+            </div>
+
+            <div className='formGroup'>
+                <div className='formGroupElements'>
                     <label htmlFor="wallet">Wallet</label>
                     <input
                         id="wallet"
@@ -351,7 +378,7 @@ const IcoForm = ({ useForm, ico }) => {
 
             <div className='formGroup'>
                 <div className='formGroupElements'>
-                    <label htmlFor="wallet_chain">Wallet Chain</label>
+                    <label htmlFor="wallet_chain">Collecting Chain</label>
                     <select
                         id="wallet_chain"
                         {...register('wallet_chain', { required: 'Wallet Chain is required' })}
@@ -367,7 +394,7 @@ const IcoForm = ({ useForm, ico }) => {
 
             <div className='formGroup'>
                 <div className='formGroupElements'>
-                    <label htmlFor="wallet_currency">Wallet Currency</label>
+                    <label htmlFor="wallet_currency">Collecting Currency</label>
                     <select
                         id="wallet_currency"
                         {...register('wallet_currency', { required: 'Wallet Currency is required' })}
@@ -379,6 +406,22 @@ const IcoForm = ({ useForm, ico }) => {
                     </select>
                 </div>
                 {errors.wallet_currency && <div className='formGroupError'>{errors.wallet_currency.message}</div>}
+            </div>
+
+            <div className='formGroup'>
+                <div className='formGroupElements'>
+                    <label htmlFor="wallet_chain">Distribution Chain</label>
+                    <select
+                        id="distribution_chain"
+                        {...register('distribution_chain', { required: 'Distribution Chain is required' })}
+                        className='inputStyles' // Ensure your CSS applies to <select> as well
+                    >
+                        <option value="">Select Chain</option> {/* Default option prompting user selection */}
+                        <option value="eth">Ethereum</option>
+                        <option value="bsc">Binance Chain</option>
+                    </select>
+                </div>
+                {errors.distribution_chain && <div className='formGroupError'>{errors.distribution_chain.message}</div>}
             </div>
 
             <div className='formGroup'>

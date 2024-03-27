@@ -68,10 +68,13 @@ export async function POST(request) {
         const wallet = formData.get('wallet');
         const wallet_chain = formData.get('wallet_chain');
         const wallet_currency = formData.get('wallet_currency');
+        const distribution_chain = formData.get('distribution_chain');
+        const vesting = formData.get('vesting');
         const short_description = formData.get('short_description');
         const description = formData.get('desc');
         const startdate = formData.get('startdate').replace('T', ' ');
         const enddate = formData.get('enddate').replace('T', ' ');
+        const tge = formData.get('tge').replace('T', ' ');
         const group_ids = formData.getAll('group_ids[]');
 
         const [existingRows] = await connection.execute('SELECT * FROM icos WHERE name = ?', [name]);
@@ -84,8 +87,8 @@ export async function POST(request) {
         }
 
         const [icoResult] = await connection.execute(
-            'INSERT INTO icos (name, website, telegram, twitter, tokenomics, pitchdeck, image, startdate, enddate, wallet, wallet_chain, wallet_currency, short_description, description, is_active) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-            [name, website, telegram, twitter, tokenomics, pitchdeck, image, startdate, enddate, wallet, wallet_chain, wallet_currency, short_description, description, false]
+            'INSERT INTO icos (name, website, telegram, twitter, tokenomics, pitchdeck, image, startdate, enddate, wallet, wallet_chain, wallet_currency, distribution_chain, tge, vesting, short_description, description, is_active) VALUES (?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            [name, website, telegram, twitter, tokenomics, pitchdeck, image, startdate, enddate, wallet, wallet_chain, wallet_currency, distribution_chain, tge, vesting, short_description, description, false]
         );
 
         const ico_id = icoResult.insertId;

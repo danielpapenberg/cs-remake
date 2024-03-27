@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChartSimple, faLink } from '@fortawesome/free-solid-svg-icons';
 import { faTwitter, faTelegram, faStackOverflow } from "@fortawesome/free-brands-svg-icons";
 import CountdownTimer from '../../components/FullWidthSlider/Countdown';
+import { format } from 'date-fns';
 
 export default function Ico({ params }) {
     const [ico, setIco] = useState([]);
@@ -114,6 +115,21 @@ export default function Ico({ params }) {
                                     } 
                                 </div>
 
+                                {
+                                    ico.tge && 
+                                        <div className="flex gap-5">
+                                            <strong>TGE: </strong> 
+                                            {format(new Date(ico.tge), 'MMMM dd, yyyy, hh:mm a')}
+                                        </div>
+                                }
+
+                                {
+                                    ico.vesting && 
+                                        <div className='flex gap-5'>
+                                            <strong>Vesting: </strong>{ ico.vesting }
+                                        </div>
+                                } 
+
                                 <div className="longdesc">
                                     <div dangerouslySetInnerHTML={createMarkup(ico.description)}></div>
                                 </div>
@@ -154,7 +170,7 @@ export default function Ico({ params }) {
                                                 
                                             </p>
                                             <p className='mb-8'>
-                                                Send <strong>{ico.wallet_currency}</strong> to <strong>{ico.wallet}</strong>
+                                                Send <strong>{ico.wallet_currency} ({ico.wallet_chain.toUpperCase()})</strong> to <strong>{ico.wallet}</strong>
                                             </p>
 
                                             <LaunchForm useForm={useForm} ico={ico} user={customer?.data} />
