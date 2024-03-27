@@ -93,7 +93,7 @@ const UserIcoForm = ({ useForm, ico, user }) => {
                 {/* Receiving Address Field */}
                 <div className='formGroup'>
                     <div className='formGroupElements'>
-                        <label htmlFor="receiving_address">Receiving Address</label>
+                        <label htmlFor="receiving_address">Receiving Address ({ico.distribution_chain})</label>
                         <input
                             id="receiving_address"
                             type="text"

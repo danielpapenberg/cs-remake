@@ -94,9 +94,12 @@ export async function PUT(request, { params }) {
         const wallet_currency = formData.get('wallet_currency');
         const short_description = formData.get('short_description');
         const description = formData.get('desc');
+        const distribution_chain = formData.get('distribution_chain');
+        const vesting = formData.get('vesting');
         // Dates from datetime-local input, converted to MySQL's TIMESTAMP format
         const startdate = formData.get('startdate').replace('T', ' ');
         const enddate = formData.get('enddate').replace('T', ' ');
+        const tge = formData.get('tge').replace('T', ' ');
 
         const group_ids = formData.getAll('group_ids[]');
 
@@ -108,7 +111,8 @@ export async function PUT(request, { params }) {
         }
 
         const updateQuery = `
-            UPDATE icos
+            UPDATE 
+                icos
             SET 
                 name = ?, 
                 website = ?, 
@@ -119,7 +123,10 @@ export async function PUT(request, { params }) {
                 image = ?, 
                 wallet = ?, 
                 wallet_chain = ?, 
-                wallet_currency = ?, 
+                wallet_currency = ?,
+                distribution_chain = ?, 
+                tge = ?, 
+                vesting = ?,
                 short_description = ?, 
                 description = ?, 
                 startdate = ?, 
@@ -138,7 +145,10 @@ export async function PUT(request, { params }) {
             wallet,
             wallet_chain,
             wallet_currency, 
-            short_description, 
+            distribution_chain,
+            tge, 
+            vesting,
+            short_description,
             description, 
             startdate, 
             enddate,

@@ -37,7 +37,6 @@ export default function Users() {
     }, [customer?.status, customer?.data]);
 
     const deleteUser = async (userId) => {
-        // API call to backend endpoint for deleting a user
         try {
             const response = await fetch(`/api/users/delete/${userId}`, {
                 method: 'DELETE',
@@ -47,15 +46,10 @@ export default function Users() {
             });
             const data = await response.json();
             if (data.success) {
-                // Optionally: Filter out the deleted user from the users state to update UI
                 setUsers(users.filter(user => user.user_id !== userId));
-                // You can add more UI feedback here (e.g., a success message)
-            } else {
-                // Handle failure (e.g., show an error message)
             }
         } catch (error) {
             console.error('Failed to delete user:', error);
-            // Handle error (e.g., show an error message)
         }
     };
 
