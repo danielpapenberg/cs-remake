@@ -98,7 +98,7 @@ export default function Ico({ params }) {
                                                     <FontAwesomeIcon icon={faLink} className='h-[34px]' />
                                                 </Link>
                                             </div>
-                                    } 
+                                    }
 
                                     {
                                         ico.twitter && 
@@ -116,7 +116,7 @@ export default function Ico({ params }) {
                                                     <FontAwesomeIcon icon={faTelegram} className='h-[40px]' />
                                                 </Link>
                                             </div>
-                                    } 
+                                    }
 
                                     {
                                         ico.tokenomics && 
@@ -125,7 +125,7 @@ export default function Ico({ params }) {
                                                     <FontAwesomeIcon icon={faChartSimple} className='h-[40px]' />
                                                 </Link>
                                             </div>
-                                    } 
+                                    }
 
                                     {
                                         ico.pitchdeck && 
@@ -134,7 +134,7 @@ export default function Ico({ params }) {
                                                     <FontAwesomeIcon icon={faStackOverflow} className='h-[40px]' />
                                                 </Link>
                                             </div>
-                                    } 
+                                    }
                                 </div>
 
                                 {

@@ -59,6 +59,13 @@ const Navigation = () => {
                                     My ICOS
                                 </Link>
                             </li>
+
+                            <li className='flex items-center'>
+                                <Link href="/calendar" className={`${linkStyles}${pathname === '/calendar' ? ' text-[#5da8ff]' : ''}`}>
+                                    <span className={linkStylesSpan}>04</span>
+                                    Calendar
+                                </Link>
+                            </li>
                         </>
                 }
 

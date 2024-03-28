@@ -607,3 +607,31 @@ bh-backdrop {
 .longdesc p {
 	margin-bottom: 20px;
 }
+
+body .calendar_default_colheader_inner,
+body .calendar_default_rowheader_inner,
+body .calendar_default_corner_inner {
+	background-color: #0f0f15;
+	color: #fff;
+	border-color: #393939;
+}
+
+body .calendar_default_main {
+	border: 0;
+}
+
+body .calendar_default_cell_inner,
+body .calendar_default_cell_business .calendar_default_cell_inner {
+	border: 0;
+	background-color: #0f0f15;
+}
+
+body .calendar_default_event_inner {
+	border-radius: 30px;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	font-size: 16px;
+	font-weight: bold;
+	border: 0;
+}
