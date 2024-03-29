@@ -156,8 +156,7 @@ export default function Ico({ params }) {
                                     <div dangerouslySetInnerHTML={createMarkup(ico.description)}></div>
                                 </div>
                             </div>
-                            <div className='mt-16 w-full md:w-[900px]'>
-
+                            <div className='w-full border border-[#333] border-solid rounded-[50px] p-10'>
                                 <H2 className='leading-1 font-normal'>Participate</H2>
 
                                 {/* <p className='mb-4 text-[24px]'><span className='text-green-500 font-bold'>Congratulations!</span> Your are eligible to join {ico.name} ICO</p> */}

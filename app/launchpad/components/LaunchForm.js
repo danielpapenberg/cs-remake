@@ -43,80 +43,82 @@ const UserIcoForm = ({ useForm, ico, user }) => {
     };
 
     return (
-        <>        
-            <form onSubmit={handleSubmit(onSubmit)} method="POST">
-                <div className='text-[40px] text-[#6A90BA] uppercase'>Manual Transaction</div>
+        <>
+			<div className='border-t-2 border-[#333] border-solid pt-5 mb-8'>
+				<form onSubmit={handleSubmit(onSubmit)} method="POST">
+					<div className='text-[40px] text-[#6A90BA] uppercase'>Manual Transaction</div>
 
-                {/* Tx Hash Field */}
-                <div className='formGroup'>
-                    <div className='formGroupElements'>
-                        <label htmlFor="txhash">Tx Hash</label>
-                        <input
-                            id="txhash"
-                            type="text"
-                            {...register('txhash', {
-                                required: 'TxHash is required',
-                                pattern: {
-                                    value: /^0x[a-fA-F0-9]{64}$/,
-                                    message: 'Invalid TxHash format'
-                                }
-                            })}
-                        />
-                    </div>
-                    {errors.txhash && <div className='formGroupError'>{errors.txhash.message}</div>}
-                </div>
+					{/* Tx Hash Field */}
+					<div className='formGroup'>
+						<div className='formGroupElements'>
+							<label htmlFor="txhash-manual">Tx Hash</label>
+							<input
+								id="txhash-manual"
+								type="text"
+								{...register('txhash', {
+									required: 'TxHash is required',
+									pattern: {
+										value: /^0x[a-fA-F0-9]{64}$/,
+										message: 'Invalid TxHash format'
+									}
+								})}
+							/>
+						</div>
+						{errors.txhash && <div className='formGroupError'>{errors.txhash.message}</div>}
+					</div>
 
-                {/* Amount Field */}
-                <div className='formGroup'>
-                    <div className='formGroupElements'>
-                        <label htmlFor="amount">Amount</label>
-                        <input
-                            id="amount"
-                            type="number"
-                            {...register('amount', {
-                                required: 'Amount is required',
-                                min: {
-                                    value: ico.min_allocation,
-                                    message: 'Amount must be at least ' + ico.min_allocation,
-                                },
-                                max: {
-                                    value: ico.max_allocation < 1 ? 10000000 : ico.max_allocation,
-                                    message: 'Amount must not exceed ' + ico.max_allocation,
-                                }
-                            })}
-                            className='inputStyles'
-                        />
-                    </div>
-                    {errors.amount && <div className='formGroupError'>{errors.amount.message}</div>}
-                </div>
+					{/* Amount Field */}
+					<div className='formGroup'>
+						<div className='formGroupElements'>
+							<label htmlFor="amount-manual">Amount</label>
+							<input
+								id="amount-manual"
+								type="number"
+								{...register('amount', {
+									required: 'Amount is required',
+									min: {
+										value: ico.min_allocation,
+										message: 'Amount must be at least ' + ico.min_allocation,
+									},
+									max: {
+										value: ico.max_allocation < 1 ? 10000000 : ico.max_allocation,
+										message: 'Amount must not exceed ' + ico.max_allocation,
+									}
+								})}
+								className='inputStyles'
+							/>
+						</div>
+						{errors.amount && <div className='formGroupError'>{errors.amount.message}</div>}
+					</div>
 
-                {/* Receiving Address Field */}
-                <div className='formGroup'>
-                    <div className='formGroupElements'>
-                        <label htmlFor="receiving_address">Receiving Address ({ico.distribution_chain})</label>
-                        <input
-                            id="receiving_address"
-                            type="text"
-                            {...register('receiving_address', {
-                                required: 'Receiving Address is required',
-                                pattern: {
-                                    value: /^0x[a-fA-F0-9]{40}$/,
-                                    message: 'Invalid Address format'
-                                }
-                            })}
-                        />
-                    </div>
-                    {errors.receiving_address && <div className='formGroupError'>{errors.receiving_address.message}</div>}
-                </div>
+					{/* Receiving Address Field */}
+					<div className='formGroup'>
+						<div className='formGroupElements'>
+							<label htmlFor="receiving_address-manual">Receiving Address ({ico.distribution_chain})</label>
+							<input
+								id="receiving_address-manual"
+								type="text"
+								{...register('receiving_address', {
+									required: 'Receiving Address is required',
+									pattern: {
+										value: /^0x[a-fA-F0-9]{40}$/,
+										message: 'Invalid Address format'
+									}
+								})}
+							/>
+						</div>
+						{errors.receiving_address && <div className='formGroupError'>{errors.receiving_address.message}</div>}
+					</div>
 
-                {/* Submit Button */}
-                <div className='formGroup'>
-                    <FormButton title="Save" type="submit" className='ms-auto'>
-                        Save
-                    </FormButton>
-                </div>
+					{/* Submit Button */}
+					<div className='formGroup'>
+						<FormButton title="Save" type="submit" className='ms-auto'>
+							Save
+						</FormButton>
+					</div>
 
-            </form>
+				</form>
+			</div>
 
             <Modal 
                 isOpen={isModalOpen} 

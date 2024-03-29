@@ -119,84 +119,86 @@ const PayDirect = ({ ico, user }) => {
 
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)} method="POST">
-                <div className='text-[40px] text-[#6A90BA] uppercase'>Pay directly with connected wallet</div>
-                {
-                    (ico.wallet_chain === 'bsc' && chainId === 56) ||
-                    (ico.wallet_chain === 'eth' && chainId === 1) ?
-                        <>
-                            {/* Amount Field */}
-                            <div className='formGroup'>
-                                <div className='formGroupElements'>
-                                    <label htmlFor="amount">Amount</label>
-                                    <input
-                                        id="amount"
-                                        name="amount"
-                                        type="number"
-                                        className='inputStyles'
-                                        {...register('amount', {
-                                            required: 'Amount is required',
-                                            min: {
-                                                value: ico.min_allocation,
-                                                message: 'Amount must be at least ' + ico.min_allocation,
-                                            },
-                                            max: {
-                                                value: ico.max_allocation < 1 ? 10000000 : ico.max_allocation,
-                                                message: 'Amount must not exceed ' + ico.max_allocation,
-                                            }
-                                        })}
-                                    />
-                                </div>
-                                {errors.amount && <div className='formGroupError'>{errors.amount.message}</div>}
-                            </div>
+			<div className='border-t-2 border-[#333] border-solid pt-5'>
+				<form onSubmit={handleSubmit(onSubmit)} method="POST">
+					<div className='text-[40px] text-[#6A90BA] uppercase'>Pay with connected wallet</div>
+					{
+						(ico.wallet_chain === 'bsc' && chainId === 56) ||
+						(ico.wallet_chain === 'eth' && chainId === 1) ?
+							<>
+								{/* Amount Field */}
+								<div className='formGroup'>
+									<div className='formGroupElements'>
+										<label htmlFor="amount-wallet">Amount</label>
+										<input
+											id="amount-wallet"
+											name="amount"
+											type="number"
+											className='inputStyles'
+											{...register('amount', {
+												required: 'Amount is required',
+												min: {
+													value: ico.min_allocation,
+													message: 'Amount must be at least ' + ico.min_allocation,
+												},
+												max: {
+													value: ico.max_allocation < 1 ? 10000000 : ico.max_allocation,
+													message: 'Amount must not exceed ' + ico.max_allocation,
+												}
+											})}
+										/>
+									</div>
+									{errors.amount && <div className='formGroupError'>{errors.amount.message}</div>}
+								</div>
 
-                            {/* Receiving Address Field */}
-                            <div className='formGroup'>
-                                <div className='formGroupElements'>
-                                    <label htmlFor="receiving_address">Receiving Address ({ico.distribution_chain})</label>
-                                    <input
-                                        id="receiving_address"
-                                        type="text"
-                                        className='inputStyles'
-                                        {...register('receiving_address', {
-                                            required: 'Receiving Address is required',
-                                            pattern: {
-                                                value: /^0x[a-fA-F0-9]{40}$/,
-                                                message: 'Invalid Address format'
-                                            }
-                                        })}
-                                    />
-                                </div>
-                                {errors.receiving_address && <div className='formGroupError'>{errors.receiving_address.message}</div>}
-                            </div>
+								{/* Receiving Address Field */}
+								<div className='formGroup'>
+									<div className='formGroupElements'>
+										<label htmlFor="receiving_address-wallet">Receiving Address ({ico.distribution_chain})</label>
+										<input
+											id="receiving_address-wallet"
+											type="text"
+											className='inputStyles'
+											{...register('receiving_address', {
+												required: 'Receiving Address is required',
+												pattern: {
+													value: /^0x[a-fA-F0-9]{40}$/,
+													message: 'Invalid Address format'
+												}
+											})}
+										/>
+									</div>
+									{errors.receiving_address && <div className='formGroupError'>{errors.receiving_address.message}</div>}
+								</div>
 
-                            {/* Error Message for web3*/}
-                            {
-                                submitError && 
-                                    <div className='formGroup'>
-                                        <div className='error text-yellow-500 italic mb-4 uppercase'>
-                                            {submitError}
-                                        </div>
-                                        <div className='text-green-500 font-bold uppercase'>
-                                            {submitAction}
-                                        </div>
-                                    </div>
-                            }
+								{/* Error Message for web3*/}
+								{
+									submitError && 
+										<div className='formGroup'>
+											<div className='error text-yellow-500 italic mb-4 uppercase'>
+												{submitError}
+											</div>
+											<div className='text-green-500 font-bold uppercase'>
+												{submitAction}
+											</div>
+										</div>
+								}
 
-                            {/* Submit Button */}
-                            <div className='formGroup'>
-                                <FormButton title="Pay with wallet" type="submit" className='ms-auto'>
-                                    Pay
-                                </FormButton>
-                            </div>
-                        </>
-                    :
-                        <div className='text-yellow-500 italic uppercase'>
-                            {/* Error Message for wrong network*/}
-                            To pay direclty you need to switch to network: <span className='font-bold'>{(ico.wallet_chain === 'bsc') ? 'BNB Smart Chain' : 'Ethereum Mainnet' }</span>
-                        </div>
-                }
-            </form>
+								{/* Submit Button */}
+								<div className='formGroup'>
+									<FormButton title="Pay with wallet" type="submit" className='ms-auto'>
+										Pay
+									</FormButton>
+								</div>
+							</>
+						:
+							<div className='text-yellow-500 italic uppercase'>
+								{/* Error Message for wrong network*/}
+								To pay direclty you need to switch to network: <span className='font-bold'>{(ico.wallet_chain === 'bsc') ? 'BNB Smart Chain' : 'Ethereum Mainnet' }</span>
+							</div>
+					}
+				</form>
+			</div>
 
             <Modal 
                 isOpen={isModalOpen} 

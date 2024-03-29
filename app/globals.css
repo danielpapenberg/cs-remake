@@ -473,7 +473,6 @@ bh-backdrop {
 
 .formGroup {
 	margin-bottom: 20px;
-	width: 900px;
 }
 
 .formGroup .formGroupError {
@@ -512,11 +511,13 @@ bh-backdrop {
 	color: #000;
 	border: 1px solid #555;
 	padding: 10px;
-	width: 640px;
+	width: 100%;
+	max-width: 500px;
 }
 
 .formGroup .input_wrapper {
-	width: 640px;
+	width: 100%;
+	max-width: 500px;
 }
 
 .formGroup label {
