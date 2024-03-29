@@ -1,5 +1,6 @@
 "use client"
 
+import LoadingSpinner from '../../components/common/LoadingSpinner';
 import H1 from '../../components/headlines/H1';
 import H2 from '../../components/headlines/H2';
 import Link from 'next/link';
@@ -75,7 +76,7 @@ export default function Ico({ params }) {
                 
                 {
                     isLoading ? 
-                        <div className="lds-ripple"><div></div><div></div></div>
+						<LoadingSpinner/>
                     :
                         <div className='flex flex-col 2xl:flex-row gap-20'>
                             <div className="relative w-full md:w-[1000px] flex-shrink-0 p-10 flex flex-col border border-[#333] border-solid rounded-[50px] text-left">

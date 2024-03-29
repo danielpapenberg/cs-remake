@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from 'react';
+import LoadingSpinner from '../components/common/LoadingSpinner';
 import H1 from '../components/headlines/H1';
 import FullWidthSlider from '../components/FullWidthSlider/FullWidthSlider';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -36,7 +37,7 @@ export default function Launchpad() {
             <FontAwesomeIcon icon={faRocket} className='text-[#00000073] absolute right-[4%] top-[20%] md:top-[10%] text-[600px] md:text-[1800px] z-[-1] select-none' />
             {
                 isLoading || !elligable ? 
-                    <div className="lds-ripple"><div></div><div></div></div>
+					<LoadingSpinner/>
                 :
                     <FullWidthSlider data={icos} />
             }

@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from 'react';
+import LoadingSpinner from '../../components/common/LoadingSpinner';
 import H1 from '../../components/headlines/H1';
 import UserForm from './../components/UserForm';
 import { useForm } from 'react-hook-form';
@@ -33,7 +34,7 @@ export default function CreateUser() {
                     </div>
                 </>
             :
-                <div className="lds-ripple"><div></div><div></div></div>
+				<LoadingSpinner/>
             }
         </main>
     )

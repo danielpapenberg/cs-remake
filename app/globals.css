@@ -533,6 +533,11 @@ bh-backdrop {
 	background-color: #ededed;
 }
 
+.lds-ripple-container {
+	display: flex;
+    justify-content: center;
+}
+
 .lds-ripple {
 	display: inline-block;
 	position: relative;
