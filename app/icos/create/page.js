@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from 'react';
+import LoadingSpinner from '../../components/common/LoadingSpinner';
 import H1 from '../../components/headlines/H1';
 import IcoForm from './../components/IcoForm'; // Adjust the path according to your project structure
 import { useForm } from 'react-hook-form'; // Import useForm
@@ -33,7 +34,7 @@ export default function CreateIco() {
                     </div>
                 </>
             :
-                <div className="lds-ripple"><div></div><div></div></div>
+				<LoadingSpinner/>
             }
         </main>
     )

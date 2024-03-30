@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from 'react';
+import LoadingSpinner from '../components/common/LoadingSpinner';
 import H1 from '../components/headlines/H1';
 import FullWidthSlider from '../components/FullWidthSlider/FullWidthSlider';
 import { useCustomer } from '../contexts/CustomerContext';
@@ -39,7 +40,7 @@ export default function MyICOs() {
                     <FullWidthSlider data={icos} myicos={true} />
                 </>
             :
-                <div className="lds-ripple"><div></div><div></div></div>
+				<LoadingSpinner/>
             }
         </main>
     )

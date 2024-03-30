@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from 'react';
+import LoadingSpinner from '../../components/common/LoadingSpinner';
 import H1 from '../../components/headlines/H1';
 import GroupForm from './../components/GroupForm';
 import { useForm } from 'react-hook-form';
@@ -52,7 +53,7 @@ export default function EditGroup({ params }) {
                     </div>
                 </>
             ) : (
-                <div className="lds-ripple"><div></div><div></div></div>
+				<LoadingSpinner/>
             )}
         </main>
     );

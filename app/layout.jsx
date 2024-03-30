@@ -28,15 +28,16 @@ export default function RootLayout({ children }) {
             <body className={roboto_c.className}>
                 <Web3Modal>
                     <CustomerProvider>
-                        <h1 className='w-[300px] m-5 fixed'>
-                            <Link href="/">
-                                <Image src={'/images/logos/logo-crypto-society.png'} width={300} height={100} alt="Crypto Society"  />
-                            </Link>
-                            
-                        </h1>
-                        <div className='right-10 top-10 fixed z-10'>
-                            <Navigation />
-                        </div>
+						<header className='fixed flex items-center justify-between w-full p-5 z-10 bg-[#0f0f15]/75'>
+							<h1 className='w-[300px]'>
+								<Link href="/">
+									<Image src={'/images/logos/logo-crypto-society.png'} width={300} height={100} alt="Crypto Society"/>
+								</Link>
+							</h1>
+							<div>
+								<Navigation/>
+							</div>
+						</header>
                     
                         {children}
 
