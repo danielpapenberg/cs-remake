@@ -90,7 +90,7 @@ export default function Home() {
                 </H2>
 
                 <p className='w-full max-w-[1000px] mt-5 mx-auto text-[16px]'>
-                    Crypto Society has also extended into a VC and has invested in over 100+ projects over the last year including Sharpe, TAP, Hypercycle, Portal, HANA, Kilt, UMEE, Retreeb, Star Atlas and Cryowar to name but a few.
+                    Crypto Society has also extended into a VC and has invested in over 100+ projects over the last years including Sharpe, TAP, Hypercycle, Portal, HANA, Kilt, UMEE, Retreeb, Star Atlas and Cryowar to name but a few.
                 </p>
 
                 <p className='w-full max-w-[1000px] mt-5 mx-auto text-[16px]'>
